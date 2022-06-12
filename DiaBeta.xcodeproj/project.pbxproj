@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C3FB42B28546B800072351F /* DBTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FB42A28546B800072351F /* DBTest.storyboard */; };
+		3C3FB42D28546BCE0072351F /* DBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB42C28546BCE0072351F /* DBTest.swift */; };
+		3C3FB432285481B20072351F /* GulaDarah+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB42E285481B20072351F /* GulaDarah+CoreDataClass.swift */; };
+		3C3FB433285481B20072351F /* GulaDarah+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB42F285481B20072351F /* GulaDarah+CoreDataProperties.swift */; };
+		3C3FB434285481B20072351F /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB430285481B20072351F /* Food+CoreDataClass.swift */; };
+		3C3FB435285481B20072351F /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB431285481B20072351F /* Food+CoreDataProperties.swift */; };
+		3C3FB437285490090072351F /* siomay.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FB436285490090072351F /* siomay.jpeg */; };
+		3C3FB4392854971F0072351F /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB4382854971F0072351F /* DBHelper.swift */; };
 		3CB22993285309BF0054797B /* Dummy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB22992285309BF0054797B /* Dummy.storyboard */; };
 		3CB2299528530A4D0054797B /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB2299428530A4D0054797B /* DummyViewController.swift */; };
 		3CB2299E28530C280054797B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB2299D28530C280054797B /* Color.swift */; };
@@ -22,6 +30,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C3FB42A28546B800072351F /* DBTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DBTest.storyboard; sourceTree = "<group>"; };
+		3C3FB42C28546BCE0072351F /* DBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTest.swift; sourceTree = "<group>"; };
+		3C3FB42E285481B20072351F /* GulaDarah+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GulaDarah+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3C3FB42F285481B20072351F /* GulaDarah+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GulaDarah+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3C3FB430285481B20072351F /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3C3FB431285481B20072351F /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3C3FB436285490090072351F /* siomay.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = siomay.jpeg; sourceTree = "<group>"; };
+		3C3FB4382854971F0072351F /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		3CB22992285309BF0054797B /* Dummy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dummy.storyboard; sourceTree = "<group>"; };
 		3CB2299428530A4D0054797B /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		3CB2299D28530C280054797B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -49,6 +65,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C3FB42828546B1F0072351F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				3C3FB42E285481B20072351F /* GulaDarah+CoreDataClass.swift */,
+				3C3FB42F285481B20072351F /* GulaDarah+CoreDataProperties.swift */,
+				3C3FB430285481B20072351F /* Food+CoreDataClass.swift */,
+				3C3FB431285481B20072351F /* Food+CoreDataProperties.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		3C3FB42928546B6D0072351F /* tester */ = {
+			isa = PBXGroup;
+			children = (
+				3C3FB436285490090072351F /* siomay.jpeg */,
+				3C3FB42A28546B800072351F /* DBTest.storyboard */,
+				3C3FB42C28546BCE0072351F /* DBTest.swift */,
+			);
+			path = tester;
+			sourceTree = "<group>";
+		};
 		3CB2298E2852F81A0054797B /* Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +130,9 @@
 		3CB2299728530AD10054797B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				3C3FB42928546B6D0072351F /* tester */,
+				3C3FB42828546B1F0072351F /* model */,
+				F94930EC284E549D005C0B43 /* DiaBeta.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -100,6 +140,7 @@
 		3CB2299828530AFB0054797B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3C3FB4382854971F0072351F /* DBHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -176,7 +217,6 @@
 				F94930EF284E549E005C0B43 /* Assets.xcassets */,
 				F94930F1284E549E005C0B43 /* LaunchScreen.storyboard */,
 				F94930F4284E549E005C0B43 /* Info.plist */,
-				F94930EC284E549D005C0B43 /* DiaBeta.xcdatamodeld */,
 			);
 			path = DiaBeta;
 			sourceTree = "<group>";
@@ -239,10 +279,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3FB42B28546B800072351F /* DBTest.storyboard in Resources */,
 				F94930F3284E549E005C0B43 /* LaunchScreen.storyboard in Resources */,
 				F94930F0284E549E005C0B43 /* Assets.xcassets in Resources */,
 				3CB229A328530C7D0054797B /* DayFoodCell.xib in Resources */,
 				F94930EB284E549D005C0B43 /* Main.storyboard in Resources */,
+				3C3FB437285490090072351F /* siomay.jpeg in Resources */,
 				3CB22993285309BF0054797B /* Dummy.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,13 +296,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3FB432285481B20072351F /* GulaDarah+CoreDataClass.swift in Sources */,
 				F94930E8284E549D005C0B43 /* ViewController.swift in Sources */,
+				3C3FB434285481B20072351F /* Food+CoreDataClass.swift in Sources */,
 				F94930E4284E549D005C0B43 /* AppDelegate.swift in Sources */,
 				F94930EE284E549D005C0B43 /* DiaBeta.xcdatamodeld in Sources */,
 				3CB2299528530A4D0054797B /* DummyViewController.swift in Sources */,
+				3C3FB433285481B20072351F /* GulaDarah+CoreDataProperties.swift in Sources */,
 				F94930E6284E549D005C0B43 /* SceneDelegate.swift in Sources */,
+				3C3FB42D28546BCE0072351F /* DBTest.swift in Sources */,
 				3CB229A228530C7D0054797B /* DayFoodCell.swift in Sources */,
 				3CB2299E28530C280054797B /* Color.swift in Sources */,
+				3C3FB435285481B20072351F /* Food+CoreDataProperties.swift in Sources */,
+				3C3FB4392854971F0072351F /* DBHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +534,8 @@
 				F94930ED284E549D005C0B43 /* DiaBeta.xcdatamodel */,
 			);
 			currentVersion = F94930ED284E549D005C0B43 /* DiaBeta.xcdatamodel */;
-			path = DiaBeta.xcdatamodeld;
+			name = DiaBeta.xcdatamodeld;
+			path = ../../DiaBeta.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
