@@ -31,8 +31,8 @@ class DBTest: UIViewController {
         let chosenDateTime = formatter.date(from: "2016/10/08 02:31")! as Date
         
         // set image to NSData
-//        let image = UIImage(named: "siomay.jpeg")
-//        let imageData:NSData = image!.jpegData(compressionQuality: 0.5)! as NSData
+        let image = UIImage(named: "siomay.jpeg")
+        let imageData:NSData = image!.jpegData(compressionQuality: 0.5)! as NSData
         
 //        print(currentDateTime)
 //        print(someDateTime)
@@ -46,17 +46,17 @@ class DBTest: UIViewController {
 //        print(gulaList[0].timestamp)
         
         // contoh command core data gula darah
-//        DBHelper.shared.createGula(timestamp: someDateTime, event: "gula puasa", jumlah: 120)
-//        gulaList = DBHelper.shared.getAllGula()
+        DBHelper.shared.createGula(timestamp: someDateTime, event: "gula puasa", jumlah: 120)
+        gulaList = DBHelper.shared.getAllGula()
 //        gulaList = DBHelper.shared.getAllSortedGula()
         gulaList = DBHelper.shared.getDateGula(chosenDateTime)
-        print(gulaList.count)
-        for i in 0..<gulaList.count{
-            print(gulaList[i].timestamp)
-        }
+//        print(gulaList.count)
+//        for i in 0..<gulaList.count{
+//            print(gulaList[i].timestamp)
+//        }
         
         // contoh command core data food
-//        DBHelper.shared.createFood(timestamp: someDateTime, nama: "harusnya di awal", category: ["1"], image: imageData)
+        DBHelper.shared.createFood(timestamp: someDateTime, nama: "nama makanan", category: ["1"], image: imageData)
 //        foodList = DBHelper.shared.getAllFood()
 //        foodList = DBHelper.shared.getAllSortedFood()
 //        foodList = DBHelper.shared.getDateFood(someDateTime)
@@ -64,7 +64,7 @@ class DBTest: UIViewController {
 //        for i in 0..<foodList.count{
 //            print(foodList[i].name)
 //        }
-//        myImageView.image = UIImage(data: foodList[0].photo as! Data)
+        myImageView.image = UIImage(data: foodList[0].photo as! Data)
         
         print("end of test")
   }
