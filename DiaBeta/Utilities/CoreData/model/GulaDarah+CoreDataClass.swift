@@ -2,7 +2,7 @@
 //  GulaDarah+CoreDataClass.swift
 //  DiaBeta
 //
-//  Created by Vincentius Ian Widi Nugroho on 11/06/22.
+//  Created by Vincentius Ian Widi Nugroho on 18/06/22.
 //
 //
 

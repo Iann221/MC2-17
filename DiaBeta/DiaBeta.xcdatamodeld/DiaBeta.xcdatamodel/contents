@@ -4,7 +4,15 @@
         <attribute name="category" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="Transformable" customClassName="NSData"/>
+        <attribute name="postGula" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="preGula" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="foodInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodInfo" inverseName="food" inverseEntity="FoodInfo"/>
+    </entity>
+    <entity name="FoodInfo" representedClassName="FoodInfo" syncable="YES">
+        <attribute name="selisih" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" inverseName="foodInfo" inverseEntity="Food"/>
     </entity>
     <entity name="GulaDarah" representedClassName="GulaDarah" syncable="YES">
         <attribute name="event" optional="YES" attributeType="String"/>
@@ -12,7 +20,8 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
+        <element name="Food" positionX="-54" positionY="18" width="128" height="134"/>
+        <element name="FoodInfo" positionX="-54" positionY="45" width="128" height="74"/>
         <element name="GulaDarah" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="Food" positionX="-54" positionY="18" width="128" height="89"/>
     </elements>
 </model>

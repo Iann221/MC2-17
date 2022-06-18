@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C2985F3285DE77400694432 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985ED285DE77400694432 /* Food+CoreDataClass.swift */; };
+		3C2985F4285DE77400694432 /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985EE285DE77400694432 /* Food+CoreDataProperties.swift */; };
+		3C2985F5285DE77400694432 /* FoodInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985EF285DE77400694432 /* FoodInfo+CoreDataClass.swift */; };
+		3C2985F6285DE77400694432 /* FoodInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985F0285DE77400694432 /* FoodInfo+CoreDataProperties.swift */; };
+		3C2985F7285DE77400694432 /* GulaDarah+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985F1285DE77400694432 /* GulaDarah+CoreDataClass.swift */; };
+		3C2985F8285DE77400694432 /* GulaDarah+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985F2285DE77400694432 /* GulaDarah+CoreDataProperties.swift */; };
 		3C3FB42B28546B800072351F /* DBTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FB42A28546B800072351F /* DBTest.storyboard */; };
 		3C3FB42D28546BCE0072351F /* DBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB42C28546BCE0072351F /* DBTest.swift */; };
-		3C3FB432285481B20072351F /* GulaDarah+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB42E285481B20072351F /* GulaDarah+CoreDataClass.swift */; };
-		3C3FB433285481B20072351F /* GulaDarah+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB42F285481B20072351F /* GulaDarah+CoreDataProperties.swift */; };
-		3C3FB434285481B20072351F /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB430285481B20072351F /* Food+CoreDataClass.swift */; };
-		3C3FB435285481B20072351F /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB431285481B20072351F /* Food+CoreDataProperties.swift */; };
 		3C3FB437285490090072351F /* siomay.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FB436285490090072351F /* siomay.jpeg */; };
 		3C3FB4392854971F0072351F /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB4382854971F0072351F /* DBHelper.swift */; };
 		3CB22993285309BF0054797B /* Dummy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB22992285309BF0054797B /* Dummy.storyboard */; };
@@ -30,12 +32,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C2985ED285DE77400694432 /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3C2985EE285DE77400694432 /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3C2985EF285DE77400694432 /* FoodInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3C2985F0285DE77400694432 /* FoodInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3C2985F1285DE77400694432 /* GulaDarah+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GulaDarah+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3C2985F2285DE77400694432 /* GulaDarah+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GulaDarah+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3C3FB42A28546B800072351F /* DBTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DBTest.storyboard; sourceTree = "<group>"; };
 		3C3FB42C28546BCE0072351F /* DBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTest.swift; sourceTree = "<group>"; };
-		3C3FB42E285481B20072351F /* GulaDarah+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GulaDarah+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3C3FB42F285481B20072351F /* GulaDarah+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GulaDarah+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3C3FB430285481B20072351F /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3C3FB431285481B20072351F /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3C3FB436285490090072351F /* siomay.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = siomay.jpeg; sourceTree = "<group>"; };
 		3C3FB4382854971F0072351F /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		3CB22992285309BF0054797B /* Dummy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dummy.storyboard; sourceTree = "<group>"; };
@@ -68,10 +72,12 @@
 		3C3FB42828546B1F0072351F /* model */ = {
 			isa = PBXGroup;
 			children = (
-				3C3FB42E285481B20072351F /* GulaDarah+CoreDataClass.swift */,
-				3C3FB42F285481B20072351F /* GulaDarah+CoreDataProperties.swift */,
-				3C3FB430285481B20072351F /* Food+CoreDataClass.swift */,
-				3C3FB431285481B20072351F /* Food+CoreDataProperties.swift */,
+				3C2985ED285DE77400694432 /* Food+CoreDataClass.swift */,
+				3C2985EE285DE77400694432 /* Food+CoreDataProperties.swift */,
+				3C2985EF285DE77400694432 /* FoodInfo+CoreDataClass.swift */,
+				3C2985F0285DE77400694432 /* FoodInfo+CoreDataProperties.swift */,
+				3C2985F1285DE77400694432 /* GulaDarah+CoreDataClass.swift */,
+				3C2985F2285DE77400694432 /* GulaDarah+CoreDataProperties.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -296,19 +302,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C3FB432285481B20072351F /* GulaDarah+CoreDataClass.swift in Sources */,
+				3C2985F8285DE77400694432 /* GulaDarah+CoreDataProperties.swift in Sources */,
 				F94930E8284E549D005C0B43 /* ViewController.swift in Sources */,
-				3C3FB434285481B20072351F /* Food+CoreDataClass.swift in Sources */,
 				F94930E4284E549D005C0B43 /* AppDelegate.swift in Sources */,
 				F94930EE284E549D005C0B43 /* DiaBeta.xcdatamodeld in Sources */,
+				3C2985F5285DE77400694432 /* FoodInfo+CoreDataClass.swift in Sources */,
 				3CB2299528530A4D0054797B /* DummyViewController.swift in Sources */,
-				3C3FB433285481B20072351F /* GulaDarah+CoreDataProperties.swift in Sources */,
 				F94930E6284E549D005C0B43 /* SceneDelegate.swift in Sources */,
+				3C2985F3285DE77400694432 /* Food+CoreDataClass.swift in Sources */,
 				3C3FB42D28546BCE0072351F /* DBTest.swift in Sources */,
 				3CB229A228530C7D0054797B /* DayFoodCell.swift in Sources */,
+				3C2985F7285DE77400694432 /* GulaDarah+CoreDataClass.swift in Sources */,
 				3CB2299E28530C280054797B /* Color.swift in Sources */,
-				3C3FB435285481B20072351F /* Food+CoreDataProperties.swift in Sources */,
 				3C3FB4392854971F0072351F /* DBHelper.swift in Sources */,
+				3C2985F4285DE77400694432 /* Food+CoreDataProperties.swift in Sources */,
+				3C2985F6285DE77400694432 /* FoodInfo+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
