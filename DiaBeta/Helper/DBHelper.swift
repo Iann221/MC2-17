@@ -15,7 +15,7 @@ class DBHelper {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var gulaList: [GulaDarah] = []
     private var foodList: [Food] = []
-    
+    private var foodInfoList: [FoodInfo] = []
     
     private init(){}
     
@@ -144,11 +144,140 @@ class DBHelper {
         guldar.timestamp = timestamp
         do {
             try context.save()
+            if (event == "post"){
+                calculate(timestamp: timestamp)
+            }
         } catch {
             print("error")
         }
     }
+    
+    // function foodInfo
+    // menghitung dan menentukan apakah masuk foodinfo atau tidak
+    func calculate(timestamp: Date){
+        foodList = getDateFood(timestamp)
+        var i: Int = 0
+        var notFound: Bool = true
+        let currFood: Food = foodList[foodList.count-1]
+        let selisih: Int64 = currFood.postGula - currFood.preGula
+        if (selisih>30){
+            let badList: [FoodInfo] = getBad()
+            if(badList.count < 5){
+                print("append bad")
+                createInfo(food: currFood, type: "bad", selisih: selisih)
+            } else {
+                while(notFound && i < 5){
+                    print("loop ke:")
+                    print(i)
+                    if (selisih >= badList[i].selisih){
+                        notFound = !notFound
+                        deleteInfo(info: badList[i])
+                        createInfo(food: currFood, type: "bad", selisih: selisih)
+                    }
+                    i+=1
+                }
+            }
+        } else {
+            let goodList: [FoodInfo] = getGood()
+            if(goodList.count < 5){
+                print("append good")
+                createInfo(food: currFood, type: "good", selisih: selisih)
+            } else {
+                while(notFound && i < 5){
+                    if (selisih >= goodList[i].selisih){
+                        notFound = !notFound
+                        deleteInfo(info: goodList[i])
+                        createInfo(food: currFood, type: "good", selisih: selisih)
+                    }
+                    i+=1
+                }
+            }
+        }
+    }
+    
+    func createInfo(food: Food, type: String, selisih: Int64){
+        let foodInfo = FoodInfo(context: context)
+        foodInfo.food = food
+        foodInfo.type = type
+        foodInfo.selisih = selisih
+        do {
+            try context.save()
+        } catch {
+            print("error create info")
+        }
+    }
+    
+    func getAllInfo() -> [FoodInfo]{
+        do{
+            foodInfoList = try context.fetch(FoodInfo.fetchRequest())
+        } catch {
+            print("error get all info")
+        }
+        return foodInfoList
+    }
+    
+    func getGood() -> [FoodInfo]{
+        do{
+            let request = FoodInfo.fetchRequest() as NSFetchRequest<FoodInfo>
 
+            // Set predicate as date being today's date
+            let predicate = NSPredicate(format: "type == %@", "good")
+            request.predicate = predicate
+            
+            foodInfoList = try context.fetch(request)
+            
+        } catch {
+            print("error")
+        }
+        return foodInfoList
+    }
+    
+    func getBad() -> [FoodInfo]{
+        do{
+            let request = FoodInfo.fetchRequest() as NSFetchRequest<FoodInfo>
+
+            // Set predicate as date being today's date
+            let predicate = NSPredicate(format: "type == %@", "bad")
+            request.predicate = predicate
+            
+            foodInfoList = try context.fetch(request)
+            
+        } catch {
+            print("error get bad")
+        }
+        return foodInfoList
+    }
+    
+    func deleteInfo(info: FoodInfo){
+        self.context.delete(info)
+        do {
+            try context.save()
+        } catch {
+            print("error")
+        }
+    }
+    
+    func dailyUpdate(){
+        // untuk testing
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+//        let weekDateTime = formatter.date(from: "2016/10/08 14:30")! as Date
+        
+        let now = Date()
+        foodInfoList = getAllInfo()
+        for i in 0..<foodInfoList.count{
+            let currTimestamp: Date = (foodInfoList[i].food?.timestamp)!
+//            let diff = Calendar.current.dateComponents([.day], from: currTimestamp, to: weekDateTime)
+            let diff = Calendar.current.dateComponents([.day], from: currTimestamp, to: now)
+            let diffDay = diff.day
+            print("perbedaan hari:")
+            print(diffDay)
+            if(diffDay! >= 7){
+                deleteInfo(info: foodInfoList[i])
+            }
+        }
+    }
+    
     // function to get food
     // get semua data makanan
     func getAllFood() -> [Food]{
@@ -204,15 +333,70 @@ class DBHelper {
         return foodList
     }
     
+    func getTimeFood(_ pickedDate: Date) -> Food {
+        do{
+            let request = Food.fetchRequest() as NSFetchRequest<Food>
+
+            // Set predicate as date being today's date
+            let predicate = NSPredicate(format: "timestamp == %@", pickedDate as NSDate)
+            request.predicate = predicate
+            
+            foodList = try context.fetch(request)
+            
+        } catch {
+            print("error")
+        }
+        return foodList[0]
+    }
+    
     // menambah data makanan baru ke db
-    func createFood(timestamp: Date, nama: String, category: [String],image: NSData){
+    func createFood(timestamp: Date, nama: String, category: [String],image: NSData, preGula: Int64){
         let food = Food(context: context)
         food.category = category
         food.name = nama
         food.photo = image
         food.timestamp = timestamp
+        food.preGula = preGula
+        food.postGula = 0
+        
+        // cek jadi posttime/ngga
+        gulaList = getWeekGula(timestamp)
+        if(gulaList.count > 0){
+            let startDate = gulaList[gulaList.count-1].timestamp!
+            let diff = Calendar.current.dateComponents([.hour], from: startDate, to: timestamp)
+            let diffHour = diff.hour
+            print("perbedaan jam:")
+            print(diffHour ?? -1)
+            if(diffHour!<=2 && diffHour!>=0 && gulaList[gulaList.count-1].event == "pre"){
+                createGula(timestamp: timestamp, event: "post", jumlah: preGula)
+            }
+        }
+        createGula(timestamp: timestamp, event: "pre", jumlah: preGula)
         do {
             try context.save()
+        } catch {
+            print("error")
+        }
+    }
+    
+    // editFood untuk hlmn update post gula, timestamp diisi gula pre makan
+    func editFood(postGula: Int64, timestamp: Date){
+        let editedFood: Food = getTimeFood(timestamp)
+        //for testing
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+//        let someDateTime = formatter.date(from: "2016/10/01 14:30")! as Date
+        
+        editedFood.postGula = postGula
+        do {
+            try context.save()
+            if (postGula>0){
+                print("edit food")
+                let currentDateTime = Date()
+                createGula(timestamp: currentDateTime, event: "post", jumlah: postGula)
+//                createGula(timestamp: someDateTime, event: "post", jumlah: postGula)
+                print("added gula darah")
+            }
         } catch {
             print("error")
         }

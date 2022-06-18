@@ -2,7 +2,7 @@
 //  GulaDarah+CoreDataProperties.swift
 //  DiaBeta
 //
-//  Created by Vincentius Ian Widi Nugroho on 11/06/22.
+//  Created by Vincentius Ian Widi Nugroho on 18/06/22.
 //
 //
 
@@ -16,8 +16,8 @@ extension GulaDarah {
         return NSFetchRequest<GulaDarah>(entityName: "GulaDarah")
     }
 
-    @NSManaged public var jumlah: Int64
     @NSManaged public var event: String?
+    @NSManaged public var jumlah: Int64
     @NSManaged public var timestamp: Date?
 
 }

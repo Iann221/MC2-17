@@ -2,7 +2,7 @@
 //  Food+CoreDataProperties.swift
 //  DiaBeta
 //
-//  Created by Vincentius Ian Widi Nugroho on 11/06/22.
+//  Created by Vincentius Ian Widi Nugroho on 18/06/22.
 //
 //
 
@@ -16,10 +16,13 @@ extension Food {
         return NSFetchRequest<Food>(entityName: "Food")
     }
 
+    @NSManaged public var category: [String]?
     @NSManaged public var name: String?
     @NSManaged public var photo: NSData?
+    @NSManaged public var postGula: Int64
+    @NSManaged public var preGula: Int64
     @NSManaged public var timestamp: Date?
-    @NSManaged public var category: [String]?
+    @NSManaged public var foodInfo: FoodInfo?
 
 }
 

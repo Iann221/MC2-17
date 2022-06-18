@@ -15,6 +15,7 @@ class DBTest: UIViewController {
 //    var listofDate: [Date] = []
     private var gulaList: [GulaDarah] = []
     private var foodList: [Food] = []
+    private var foodInfoList: [FoodInfo] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var tesButton: UIButton!
@@ -27,12 +28,13 @@ class DBTest: UIViewController {
         // set date
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        let someDateTime = formatter.date(from: "2016/10/01 10:31")! as Date
+        let someDateTime = formatter.date(from: "2016/10/01 13:47")! as Date
+        let someDateTime2 = formatter.date(from: "2016/10/01 14:30")! as Date
         let chosenDateTime = formatter.date(from: "2016/10/08 02:31")! as Date
         
         // set image to NSData
-//        let image = UIImage(named: "siomay.jpeg")
-//        let imageData:NSData = image!.jpegData(compressionQuality: 0.5)! as NSData
+        let image = UIImage(named: "siomay.jpeg")
+        let imageData:NSData = image!.jpegData(compressionQuality: 0.5)! as NSData
         
 //        print(currentDateTime)
 //        print(someDateTime)
@@ -46,24 +48,43 @@ class DBTest: UIViewController {
 //        print(gulaList[0].timestamp)
         
         // contoh command core data gula darah
-//        DBHelper.shared.createGula(timestamp: someDateTime, event: "gula puasa", jumlah: 120)
+//        DBHelper.shared.createGula(timestamp: someDateTime, event: "post", jumlah: 120)
 //        gulaList = DBHelper.shared.getAllGula()
 //        gulaList = DBHelper.shared.getAllSortedGula()
-        gulaList = DBHelper.shared.getDateGula(chosenDateTime)
-        print(gulaList.count)
-        for i in 0..<gulaList.count{
-            print(gulaList[i].timestamp)
-        }
+//        gulaList = DBHelper.shared.getDateGula(chosenDateTime)
+//        print(gulaList.count)
+//        for i in 0..<gulaList.count{
+//            print(gulaList[i].timestamp)
+//        }
         
         // contoh command core data food
-//        DBHelper.shared.createFood(timestamp: someDateTime, nama: "harusnya di awal", category: ["1"], image: imageData)
+//        DBHelper.shared.createFood(timestamp: someDateTime, nama: "bad7", category: ["1"], image: imageData, preGula: 100)
+//        DBHelper.shared.editFood(postGula: 140, timestamp: someDateTime)
 //        foodList = DBHelper.shared.getAllFood()
+//        foodList.append(DBHelper.shared.getTimeFood(someDateTime))
 //        foodList = DBHelper.shared.getAllSortedFood()
 //        foodList = DBHelper.shared.getDateFood(someDateTime)
 //        print(foodList.count)
 //        for i in 0..<foodList.count{
-//            print(foodList[i].name)
+//            print(foodList[i].postGula)
 //        }
+        
+        gulaList = DBHelper.shared.getAllGula()
+        print(gulaList.count)
+        for i in 0..<gulaList.count{
+            print(gulaList[i].event)
+        }
+
+//        DBHelper.shared.createInfo(food: foodList[0], type: "bad", selisih: 69)
+        DBHelper.shared.dailyUpdate()
+//        foodInfoList = DBHelper.shared.getGood()
+//        foodInfoList = DBHelper.shared.getBad()
+        foodInfoList = DBHelper.shared.getAllInfo()
+        print(foodInfoList.count)
+        for i in 0..<foodInfoList.count{
+            print(foodInfoList[i].selisih)
+        }
+//        
 //        myImageView.image = UIImage(data: foodList[0].photo as! Data)
         
         print("end of test")
