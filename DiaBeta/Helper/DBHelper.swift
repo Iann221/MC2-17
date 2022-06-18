@@ -259,16 +259,16 @@ class DBHelper {
     
     func dailyUpdate(){
         // untuk testing
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        let weekDateTime = formatter.date(from: "2016/10/08 14:30")! as Date
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+//        let weekDateTime = formatter.date(from: "2016/10/08 14:30")! as Date
         
         let now = Date()
         foodInfoList = getAllInfo()
         for i in 0..<foodInfoList.count{
             let currTimestamp: Date = (foodInfoList[i].food?.timestamp)!
-            let diff = Calendar.current.dateComponents([.day], from: currTimestamp, to: weekDateTime)
-//            let diff = Calendar.current.dateComponents([.day], from: currTimestamp, to: now)
+//            let diff = Calendar.current.dateComponents([.day], from: currTimestamp, to: weekDateTime)
+            let diff = Calendar.current.dateComponents([.day], from: currTimestamp, to: now)
             let diffDay = diff.day
             print("perbedaan hari:")
             print(diffDay)
@@ -383,9 +383,9 @@ class DBHelper {
     func editFood(postGula: Int64, timestamp: Date){
         let editedFood: Food = getTimeFood(timestamp)
         //for testing
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        let someDateTime = formatter.date(from: "2016/10/01 14:30")! as Date
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+//        let someDateTime = formatter.date(from: "2016/10/01 14:30")! as Date
         
         editedFood.postGula = postGula
         do {
@@ -393,8 +393,8 @@ class DBHelper {
             if (postGula>0){
                 print("edit food")
                 let currentDateTime = Date()
-    //            createGula(timestamp: currentDateTime, event: "post", jumlah: postGula)
-                createGula(timestamp: someDateTime, event: "post", jumlah: postGula)
+                createGula(timestamp: currentDateTime, event: "post", jumlah: postGula)
+//                createGula(timestamp: someDateTime, event: "post", jumlah: postGula)
                 print("added gula darah")
             }
         } catch {
