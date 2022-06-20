@@ -22,10 +22,14 @@
 		3CB2299E28530C280054797B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB2299D28530C280054797B /* Color.swift */; };
 		3CB229A228530C7D0054797B /* DayFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB229A028530C7D0054797B /* DayFoodCell.swift */; };
 		3CB229A328530C7D0054797B /* DayFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CB229A128530C7D0054797B /* DayFoodCell.xib */; };
+		A16471EC28603162006F06D6 /* NotifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16471EB28603162006F06D6 /* NotifViewController.swift */; };
+		A16471EE2860317A006F06D6 /* NotifPreMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16471ED2860317A006F06D6 /* NotifPreMealViewController.swift */; };
+		A16471F0286031D2006F06D6 /* NotifPreMeal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16471EF286031D2006F06D6 /* NotifPreMeal.storyboard */; };
+		A16471F228603285006F06D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16471F128603285006F06D6 /* Main.storyboard */; };
 		F94930E4284E549D005C0B43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94930E3284E549D005C0B43 /* AppDelegate.swift */; };
 		F94930E6284E549D005C0B43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94930E5284E549D005C0B43 /* SceneDelegate.swift */; };
 		F94930E8284E549D005C0B43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94930E7284E549D005C0B43 /* ViewController.swift */; };
-		F94930EB284E549D005C0B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94930E9284E549D005C0B43 /* Main.storyboard */; };
+		F94930EB284E549D005C0B43 /* Notif.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94930E9284E549D005C0B43 /* Notif.storyboard */; };
 		F94930EE284E549D005C0B43 /* DiaBeta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F94930EC284E549D005C0B43 /* DiaBeta.xcdatamodeld */; };
 		F94930F0284E549E005C0B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F94930EF284E549E005C0B43 /* Assets.xcassets */; };
 		F94930F3284E549E005C0B43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94930F1284E549E005C0B43 /* LaunchScreen.storyboard */; };
@@ -47,11 +51,15 @@
 		3CB2299D28530C280054797B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		3CB229A028530C7D0054797B /* DayFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFoodCell.swift; sourceTree = "<group>"; };
 		3CB229A128530C7D0054797B /* DayFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayFoodCell.xib; sourceTree = "<group>"; };
+		A16471EB28603162006F06D6 /* NotifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifViewController.swift; sourceTree = "<group>"; };
+		A16471ED2860317A006F06D6 /* NotifPreMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifPreMealViewController.swift; sourceTree = "<group>"; };
+		A16471EF286031D2006F06D6 /* NotifPreMeal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotifPreMeal.storyboard; sourceTree = "<group>"; };
+		A16471F128603285006F06D6 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F94930E0284E549D005C0B43 /* DiaBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94930E3284E549D005C0B43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F94930E5284E549D005C0B43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F94930E7284E549D005C0B43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F94930EA284E549D005C0B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F94930EA284E549D005C0B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notif.storyboard; sourceTree = "<group>"; };
 		F94930ED284E549D005C0B43 /* DiaBeta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiaBeta.xcdatamodel; sourceTree = "<group>"; };
 		F94930EF284E549E005C0B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F94930F2284E549E005C0B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -219,7 +227,11 @@
 				F94930E3284E549D005C0B43 /* AppDelegate.swift */,
 				F94930E5284E549D005C0B43 /* SceneDelegate.swift */,
 				F94930E7284E549D005C0B43 /* ViewController.swift */,
-				F94930E9284E549D005C0B43 /* Main.storyboard */,
+				A16471EB28603162006F06D6 /* NotifViewController.swift */,
+				A16471ED2860317A006F06D6 /* NotifPreMealViewController.swift */,
+				A16471F128603285006F06D6 /* Main.storyboard */,
+				F94930E9284E549D005C0B43 /* Notif.storyboard */,
+				A16471EF286031D2006F06D6 /* NotifPreMeal.storyboard */,
 				F94930EF284E549E005C0B43 /* Assets.xcassets */,
 				F94930F1284E549E005C0B43 /* LaunchScreen.storyboard */,
 				F94930F4284E549E005C0B43 /* Info.plist */,
@@ -289,7 +301,9 @@
 				F94930F3284E549E005C0B43 /* LaunchScreen.storyboard in Resources */,
 				F94930F0284E549E005C0B43 /* Assets.xcassets in Resources */,
 				3CB229A328530C7D0054797B /* DayFoodCell.xib in Resources */,
-				F94930EB284E549D005C0B43 /* Main.storyboard in Resources */,
+				A16471F0286031D2006F06D6 /* NotifPreMeal.storyboard in Resources */,
+				F94930EB284E549D005C0B43 /* Notif.storyboard in Resources */,
+				A16471F228603285006F06D6 /* Main.storyboard in Resources */,
 				3C3FB437285490090072351F /* siomay.jpeg in Resources */,
 				3CB22993285309BF0054797B /* Dummy.storyboard in Resources */,
 			);
@@ -305,6 +319,8 @@
 				3C2985F8285DE77400694432 /* GulaDarah+CoreDataProperties.swift in Sources */,
 				F94930E8284E549D005C0B43 /* ViewController.swift in Sources */,
 				F94930E4284E549D005C0B43 /* AppDelegate.swift in Sources */,
+				A16471EC28603162006F06D6 /* NotifViewController.swift in Sources */,
+				A16471EE2860317A006F06D6 /* NotifPreMealViewController.swift in Sources */,
 				F94930EE284E549D005C0B43 /* DiaBeta.xcdatamodeld in Sources */,
 				3C2985F5285DE77400694432 /* FoodInfo+CoreDataClass.swift in Sources */,
 				3CB2299528530A4D0054797B /* DummyViewController.swift in Sources */,
@@ -323,12 +339,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F94930E9284E549D005C0B43 /* Main.storyboard */ = {
+		F94930E9284E549D005C0B43 /* Notif.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F94930EA284E549D005C0B43 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Notif.storyboard;
 			sourceTree = "<group>";
 		};
 		F94930F1284E549E005C0B43 /* LaunchScreen.storyboard */ = {
