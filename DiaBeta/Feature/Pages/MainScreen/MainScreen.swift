@@ -12,6 +12,17 @@ var goodFoodLabelArr:[String] = ["Protein, Vegetables", "Protein, Grain, Starch"
 var goodGlucoselvlArr:[Int64] = [30, 11, 18, 10, 5]
 var foodImgArr:[String] = ["nasi padang", "nasi uduk", "pecel ayam", "bubur kacang", "steak"]
 
+var goodFood:[String] = []
+var goodFoodLabel:[String] = []
+var goodGlucoseDif:[Int64] = []
+var goodFoodImg:[NSData] = []
+var goodFoodInfo:[FoodInfo] = []
+var badFood:[String] = []
+var badFoodLabel:[String] = []
+var badGlucoseDif:[Int64] = []
+var badFoodImg:[NSData] = []
+var badFoodInfo:[FoodInfo] = []
+
 class MainScreen: UIViewController {
 
   @IBOutlet weak var bottomView: UIView!
@@ -24,7 +35,6 @@ class MainScreen: UIViewController {
   @IBOutlet weak var allGoodFood: UIButton!
   @IBOutlet weak var allBadFood: UIButton!
   
-
   
   override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +50,8 @@ class MainScreen: UIViewController {
         let nibCell = UINib(nibName: "GlucoseFoodCell", bundle: nil)
         foodCollectionView.register(nibCell, forCellWithReuseIdentifier: "foodCell")
         badFoodCollectionView.register(nibCell, forCellWithReuseIdentifier: "foodCell")
+    goodFoodInfo = DBHelper.shared.getGood()
+    badFoodInfo = DBHelper.shared.getBad()
     }
   
   @IBAction func seeAllGoodFood(_ sender: UIButton) {
@@ -49,41 +61,22 @@ class MainScreen: UIViewController {
     print("All Bad Food")
   }
   
-  
-  
-  
-  
-  
-  
 }
-
-extension MainScreen{
-  
-  
-  
-  
-  
-}
-
-
 
 
 extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if collectionView == foodCollectionView {
-      return goodFoodNameArr.count
+      return goodFoodInfo.count
     }
     else {
-      return goodFoodNameArr.count
+      return badFoodInfo.count
     }
-    
-   
   }
 
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    print("selected" + String(indexPath.row) + goodFoodNameArr[indexPath.row])
     performSegue(withIdentifier: "foodDetail", sender: self)
   }
   
@@ -92,23 +85,17 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foodCell", for: indexPath) as! GlucoseFoodCell
     if collectionView == foodCollectionView {
       cell.foodImage.image = UIImage(named: foodImgArr[indexPath.row])
-      cell.foodName.text = goodFoodNameArr[indexPath.row]
-      cell.foodLabel.text = goodFoodLabelArr[indexPath.row]
-      cell.glucoseLabel.text = "+ " + String(goodGlucoselvlArr[indexPath.row]) + " mg/dL"
-      
-      if goodGlucoselvlArr[indexPath.row] > 30 {
-        cell.glucoseLabel.backgroundColor = UIColor.red
-      }
-      else {
-        cell.glucoseLabel.backgroundColor = UIColor.green
-      }
+      cell.foodName.text = goodFoodInfo[indexPath.row].food?.name
+      cell.foodLabel.text = goodFoodInfo[indexPath.row].food?.category![0]
+      cell.glucoseLabel.text = "+ " + String(goodFoodInfo[indexPath.row].selisih) + " mg/dL"
+      cell.glucoseLabel.backgroundColor = UIColor.green
       return cell
     }
     else {
       cell.foodImage.image = UIImage(named: foodImgArr[indexPath.row])
-      cell.foodName.text = goodFoodNameArr[indexPath.row]
-      cell.foodLabel.text = goodFoodLabelArr[indexPath.row]
-      cell.glucoseLabel.text = "+ " + String(goodGlucoselvlArr[indexPath.row]) + " mg/dL"
+      cell.foodName.text = badFoodInfo[indexPath.row].food?.name
+      cell.foodLabel.text = badFoodInfo[indexPath.row].food?.category![0]
+      cell.glucoseLabel.text = "+ " + String(badFoodInfo[indexPath.row].selisih) + " mg/dL"
       cell.glucoseLabel.backgroundColor = UIColor.red
       return cell
     }
