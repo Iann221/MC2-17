@@ -8,8 +8,6 @@
 import UIKit
 
 class MealsViewController: UIViewController {
-  var minuteCount = 0
-  var hourCount = 0
   var dateDate = "2022/10/1 "
   var hourHour = 10
   var minuteMinute = 10
@@ -35,8 +33,10 @@ class MealsViewController: UIViewController {
       handler: nil)
     
     DBHelper.shared.editFood(postGula: postValue, timestamp: sampleData)
-    minuteCount += 5
-    hourCount += 2
+    minuteMinute += 5
+    hourHour += 2
+    print("timestamp post:")
+    print(sampleData)
     heh.addAction(haction)
     present(heh, animated: true, completion: nil)
 
@@ -61,7 +61,8 @@ class MealsViewController: UIViewController {
       let image = UIImage(named: "siomay.jpeg")
       let imageData:NSData = image!.jpegData(compressionQuality: 0.5)! as NSData
       DBHelper.shared.createFood(timestamp:sampleData, nama: foodName, category: foodCategory, image: imageData, preGula: preValue)
-
+      print("timestamp pre:")
+      print(sampleData)
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
     

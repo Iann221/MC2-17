@@ -84,7 +84,7 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
 
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foodCell", for: indexPath) as! GlucoseFoodCell
     if collectionView == foodCollectionView {
-      cell.foodImage.image = UIImage(named: foodImgArr[indexPath.row])
+      cell.foodImage.image = UIImage(data: (goodFoodInfo[indexPath.row].food?.photo)!as Data)
       cell.foodName.text = goodFoodInfo[indexPath.row].food?.name
       cell.foodLabel.text = goodFoodInfo[indexPath.row].food?.category![0]
       cell.glucoseLabel.text = "+ " + String(goodFoodInfo[indexPath.row].selisih) + " mg/dL"
@@ -92,7 +92,7 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
       return cell
     }
     else {
-      cell.foodImage.image = UIImage(named: foodImgArr[indexPath.row])
+      cell.foodImage.image = UIImage(data: (badFoodInfo[indexPath.row].food?.photo)!as Data)
       cell.foodName.text = badFoodInfo[indexPath.row].food?.name
       cell.foodLabel.text = badFoodInfo[indexPath.row].food?.category![0]
       cell.glucoseLabel.text = "+ " + String(badFoodInfo[indexPath.row].selisih) + " mg/dL"
