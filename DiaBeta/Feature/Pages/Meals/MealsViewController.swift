@@ -53,7 +53,7 @@ class MealsViewController: UIViewController {
       style: .default,
       handler: nil)
       let formatter = DateFormatter()
-      formatter.dateFormat = "yyyy/MM/dd HH:mm"
+    formatter.dateFormat = "yyyy/MM/dd HH:mm"
       let sampleData = formatter.date(from: dateDate+String(hourHour)+":"+String(minuteMinute))!
       let foodName = "Pecel Ayam"
       let foodCategory = ["Grain", "Protein"]

@@ -167,7 +167,7 @@
                             <constraint firstItem="VWO-rP-gPu" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wcI-3e-D4h"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Records" id="IfA-Km-RYp"/>
+                    <tabBarItem key="tabBarItem" title="Records" image="newspaper" catalog="system" id="IfA-Km-RYp"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="allBadFood" destination="GOt-Kr-oyX" id="pSW-0C-rix"/>
@@ -197,6 +197,7 @@
     </scenes>
     <resources>
         <image name="exclamationmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="newspaper" catalog="system" width="128" height="111"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.4823529411764706" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

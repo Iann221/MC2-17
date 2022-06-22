@@ -26,6 +26,7 @@ class GlucoseFoodCell: UICollectionViewCell {
 extension GlucoseFoodCell {
   func layerSetup(){
     foodImage.layer.cornerRadius = 8
+    foodImage.clipsToBounds = true
     glucoseLabel.layer.cornerRadius = 8
     glucoseLabel.layer.masksToBounds = true
     self.layer.cornerRadius = 8
