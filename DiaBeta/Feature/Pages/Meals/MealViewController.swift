@@ -7,11 +7,31 @@
 
 import UIKit
 
-class MealViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
+class MealViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dateData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! DateCollectionViewCell
+    
+        cell2.dateLabel.text = dateData[indexPath.row]
+        
+        cell2.dateLabel.layer.borderWidth = 1
+        cell2.dateLabel.layer.borderColor = UIColor(red: 0/255, green: 123/255, blue: 86/255, alpha: 1).cgColor
+        cell2.dateLabel.layer.cornerRadius = 10
+        cell2.dateLabel.layer.masksToBounds = true
+        
+        return cell2
+    }
+    
     @IBOutlet var tableView: UITableView!
     
 //    let myData = ["first", "second", "third", "four", "five","six","seven","eight"]
+    
+    var dateData:[String]=["Today","01 Jan 2022", "31 Dec 2021","30 Dec 2021","29 Dec 2021","28 Dec 2021","27 Dec 2021"]
+    
     let myData = DBHelper.shared.getAllFood()
     let dateFormatter = DateFormatter()
     
