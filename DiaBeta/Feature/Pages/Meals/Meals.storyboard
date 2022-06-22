@@ -39,7 +39,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Meals" image="paperplane" catalog="system" id="ZZo-ma-fhG"/>
+                    <tabBarItem key="tabBarItem" title="Meals" image="list.bullet" catalog="system" id="ZZo-ma-fhG"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -49,7 +49,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="paperplane" catalog="system" width="128" height="118"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

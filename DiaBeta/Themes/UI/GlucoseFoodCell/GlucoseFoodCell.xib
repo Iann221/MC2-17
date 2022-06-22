@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="140" height="170"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="knk-p9-MwU">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="knk-p9-MwU">
                         <rect key="frame" x="3.5" y="3.5" width="133" height="110"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="110" id="wea-1O-N8Z"/>
@@ -71,7 +71,7 @@
             </constraints>
             <size key="customSize" width="294" height="200"/>
             <connections>
-                <outlet property="FoodImage" destination="knk-p9-MwU" id="6gE-qL-l2N"/>
+                <outlet property="foodImage" destination="knk-p9-MwU" id="KGY-ZI-hre"/>
                 <outlet property="foodLabel" destination="hzz-KZ-TfP" id="mGN-gE-KIk"/>
                 <outlet property="foodName" destination="eal-Ot-m5e" id="lYs-9I-Ll4"/>
                 <outlet property="glucoseLabel" destination="6JB-ol-TxT" id="66f-Gm-RzI"/>
