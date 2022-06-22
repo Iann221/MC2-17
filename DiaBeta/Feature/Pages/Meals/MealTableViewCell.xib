@@ -28,10 +28,10 @@
                         </buttonConfiguration>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4vW-Tf-cpb">
-                        <rect key="frame" x="17.5" y="7" width="84" height="65"/>
+                        <rect key="frame" x="17.5" y="7" width="84" height="83"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="84" id="0Kf-EC-aqK"/>
-                            <constraint firstAttribute="height" constant="65" id="bdd-XG-dhC"/>
+                            <constraint firstAttribute="height" constant="83" id="bdd-XG-dhC"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6M-Gv-TgI">
@@ -45,7 +45,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06G-Qg-uCo">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please input your post meal glucose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06G-Qg-uCo">
                         <rect key="frame" x="116" y="7" width="201" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="201" id="tZf-10-Ol0"/>
@@ -115,7 +115,7 @@
                     <constraint firstItem="s6o-7E-DUV" firstAttribute="leading" secondItem="p6M-Gv-TgI" secondAttribute="trailing" constant="14.5" id="ZhH-oe-zQs"/>
                     <constraint firstAttribute="bottom" secondItem="sOc-NI-U4I" secondAttribute="bottom" constant="35" id="cqa-ap-OBz"/>
                     <constraint firstItem="sOc-NI-U4I" firstAttribute="leading" secondItem="LBK-z3-txi" secondAttribute="trailing" constant="12" id="dX2-Un-KQO"/>
-                    <constraint firstAttribute="bottom" secondItem="4vW-Tf-cpb" secondAttribute="bottom" constant="29" id="fct-Wp-cnf"/>
+                    <constraint firstAttribute="bottom" secondItem="4vW-Tf-cpb" secondAttribute="bottom" constant="11" id="fct-Wp-cnf"/>
                     <constraint firstItem="sOc-NI-U4I" firstAttribute="leading" secondItem="2gM-bP-8HB" secondAttribute="trailing" constant="12" id="hMu-2v-Swy"/>
                     <constraint firstAttribute="trailing" secondItem="sOc-NI-U4I" secondAttribute="trailing" constant="20" symbolic="YES" id="ifr-bw-CiR"/>
                     <constraint firstAttribute="trailingMargin" secondItem="O6x-LL-oHF" secondAttribute="trailing" constant="33" id="k1t-iD-FwI"/>
