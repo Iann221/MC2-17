@@ -9,6 +9,7 @@ import UIKit
 
 class MealViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource{
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dateData.count
     }
@@ -16,12 +17,14 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! DateCollectionViewCell
     
-        cell2.dateLabel.text = dateData[indexPath.row]
+        cell2.dateButton.setTitle(dateData[indexPath.row], for: .normal)
+        cell2.dateButton.titleLabel?.font = UIFont.systemFont(ofSize: 11)
+        cell2.dateButton.layer.backgroundColor = UIColor.white.cgColor
         
-        cell2.dateLabel.layer.borderWidth = 1
-        cell2.dateLabel.layer.borderColor = UIColor(red: 0/255, green: 123/255, blue: 86/255, alpha: 1).cgColor
-        cell2.dateLabel.layer.cornerRadius = 10
-        cell2.dateLabel.layer.masksToBounds = true
+        cell2.dateButton.layer.cornerRadius = 16
+        cell2.dateButton.layer.masksToBounds = true
+        cell2.dateButton.layer.borderWidth = 1
+        cell2.dateButton.layer.borderColor = UIColor(red: 0/255, green: 123/255, blue: 86/255, alpha: 1).cgColor
         
         cell2.dateButton.tag = indexPath.row
         cell2.dateButton.addTarget(self, action : #selector(buttonClicked), for: .touchUpInside)
@@ -29,9 +32,13 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell2
     }
     
-    @objc func buttonClicked(sender: UIButton) {
+    @IBAction func buttonClicked(sender: UIButton) {
         let indexpath1 = IndexPath(row: sender.tag, section: 0)
         print(dateData[indexpath1.row])
+        
+        sender.backgroundColor = UIColor(named: "GreenColor")
+        sender.setTitleColor(.white, for: .normal)
+        
     }
     
     @IBOutlet var tableView: UITableView!

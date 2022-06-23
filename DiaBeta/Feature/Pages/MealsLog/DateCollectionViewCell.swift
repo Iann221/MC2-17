@@ -10,6 +10,5 @@ import UIKit
 class DateCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var dateButton: UIButton!
-    @IBOutlet weak var dateLabel: UILabel!
 
 }
