@@ -17,6 +17,7 @@ class MainScreen: UIViewController {
   @IBOutlet weak var newsView: UIView!
   @IBOutlet weak var newsTopLabel: UILabel!
   @IBOutlet weak var newsBottomLabel: UILabel!
+  @IBOutlet weak var newsImage: UIImageView!
   @IBOutlet weak var foodCollectionView: UICollectionView!
   @IBOutlet weak var badFoodCollectionView: UICollectionView!
   @IBOutlet weak var allGoodFood: UIButton!
@@ -40,7 +41,17 @@ class MainScreen: UIViewController {
         badFoodCollectionView.register(nibCell, forCellWithReuseIdentifier: "foodCell")
         goodFoodInfo = DBHelper.shared.getGood()
         badFoodInfo = DBHelper.shared.getBad()
+        updateReminder(data: getReminder())
     }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    updateReminder(data: getReminder())
+    goodFoodInfo = DBHelper.shared.getGood()
+    badFoodInfo = DBHelper.shared.getBad()
+    foodCollectionView.reloadData()
+    badFoodCollectionView.reloadData()
+    
+  }
   
   @IBAction func seeAllGoodFood(_ sender: UIButton) {
     print("All Good Food")
@@ -52,7 +63,7 @@ class MainScreen: UIViewController {
   
 }
 
-
+    //collection view function
 extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -98,11 +109,60 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
 
   }
   
+  //prepare send data when click
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
     let foodDetailVC = segue.destination as! FoodDetailViewController
-    foodDetailVC.foodDetail = selectedFoodInfo //sesuain sama cell
+    foodDetailVC.foodDetail = selectedFoodInfo
     
+  }
+}
+  //logic to display reminder
+extension MainScreen {
+  func updateReminder(data:String) {
+    switch data {
+    case "noData":
+      print("please share your food")
+      newsImage.image = UIImage(systemName: "info.circle.fill")
+      newsImage.tintColor = UIColor.orange
+      newsTopLabel.text = "What's inside your tummy?"
+      newsTopLabel.textColor = UIColor.black
+      newsBottomLabel.text = "You can share it here"
+      newsBottomLabel.textColor = UIColor.black
+    case "updateData":
+      print("update your glucose")
+      newsImage.image = UIImage(systemName: "info.circle.fill")
+      newsImage.tintColor = UIColor.red
+      newsTopLabel.text = "Oh no, meals are not updated!"
+      newsTopLabel.textColor = UIColor.red
+      newsBottomLabel.text = "Please update your meal"
+      newsBottomLabel.textColor = UIColor.red
+    case "keepGoing":
+      print("great keep update")
+      newsImage.image = UIImage(systemName: "exclamationmark.circle.fill")
+      newsImage.tintColor = UIColor(named: "AccentColor")
+      newsTopLabel.text = "Nice Work!"
+      newsTopLabel.textColor = UIColor.black
+      newsBottomLabel.text = "You keep your meals updated"
+      newsBottomLabel.textColor = UIColor.black
+    default:
+      print("no data")
+    }
+  }
+
+  func getReminder()->String{
+    let lastFoodInfo:[Food] = DBHelper.shared.getAllFood()
+    if lastFoodInfo.isEmpty && lastFoodInfo.isEmpty {
+      return "noData"
+    }
+    
+    else if lastFoodInfo[lastFoodInfo.count - 1 ].postGula == 0 {
+      return "updateData"
+    }
+    
+    else {
+      return "keepGoing"
+      }
   }
 }
 
