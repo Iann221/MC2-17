@@ -9,7 +9,6 @@ import UIKit
 
 class MealViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource{
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dateData.count
     }
@@ -19,12 +18,13 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     
         cell2.dateButton.setTitle(dateData[indexPath.row], for: .normal)
         cell2.dateButton.titleLabel?.font = UIFont.systemFont(ofSize: 11)
-        cell2.dateButton.layer.backgroundColor = UIColor.white.cgColor
+        //cell2.dateButton.layer.backgroundColor = UIColor.white.cgColor
         
         cell2.dateButton.layer.cornerRadius = 16
         cell2.dateButton.layer.masksToBounds = true
         cell2.dateButton.layer.borderWidth = 1
         cell2.dateButton.layer.borderColor = UIColor(red: 0/255, green: 123/255, blue: 86/255, alpha: 1).cgColor
+        
         
         cell2.dateButton.tag = indexPath.row
         cell2.dateButton.addTarget(self, action : #selector(buttonClicked), for: .touchUpInside)
@@ -35,11 +35,24 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func buttonClicked(sender: UIButton) {
         let indexpath1 = IndexPath(row: sender.tag, section: 0)
         print(dateData[indexpath1.row])
+       
+       // let isAlreadySelected = sender.isSelected == true
+
+        sender.isSelected = !sender.isSelected
         
-        sender.backgroundColor = UIColor(named: "GreenColor")
-        sender.setTitleColor(.white, for: .normal)
+        if(sender.isSelected == true){
+            sender.layer.backgroundColor = UIColor(red: 0/255, green: 123/255, blue: 86/255, alpha: 1).cgColor
+            sender.setTitleColor(.white, for: .normal)
+            
+        }else{
+            sender.layer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
+            sender.setTitleColor(UIColor(red: 47/255, green: 72/255, blue: 88/255, alpha: 1), for: .normal)
+     
+        }
+        
         
     }
+    
     
     @IBOutlet var tableView: UITableView!
     
