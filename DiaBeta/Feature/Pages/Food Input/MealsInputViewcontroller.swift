@@ -20,7 +20,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   @IBOutlet weak var DateView: UIView!
   @IBOutlet weak var TimeView: UIView!
   @IBOutlet weak var preGlucoseView: UIView!
-  
+  @IBOutlet weak var mgDL: UILabel!
   
   @IBOutlet weak var preGlucoseTextField: UITextField!
   @IBOutlet weak var foodTextField: UITextField!
@@ -100,34 +100,40 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   //MARK: - Image Input
   
   @IBAction func tappedCameraButton(_ sender: Any) {
-    let defaultAction = UIAlertAction(title: "Camera",
-                                      style: .default) { [self] (action) in
-   // Respond to user selection of the action.
-              let picker = UIImagePickerController()
-              picker.sourceType = .camera
-              picker.allowsEditing = true
-              picker.delegate = self
-              self.present(picker, animated:true)
-      
-      let imageData:NSData = self.cameraPreview.image!.jpegData(compressionQuality: 0.5)! as NSData
-      imageCoreData = imageData
-      
-    }
-    let cancelAction = UIAlertAction(title: "Gallery",
-                         style: .cancel) { (action) in
-      self.imagePickerController.sourceType = .photoLibrary
-      self.present(self.imagePickerController, animated: true, completion: nil)
-    }
+    let picker = UIImagePickerController()
+    picker.sourceType = .camera
+    picker.allowsEditing = true
+    picker.delegate = self
+    present(picker, animated: true)
     
-    // Create and configure the alert controller.
-    let alert = UIAlertController(title: "Method of Input",
-          message: "Please Choose the methode to take the photo",
-          preferredStyle: .alert)
-    alert.addAction(defaultAction)
-    alert.addAction(cancelAction)
-         
-    self.present(alert, animated: true) {
-    }
+//    let defaultAction = UIAlertAction(title: "Camera",
+//                                      style: .default) { [self] (action) in
+//   // Respond to user selection of the action.
+//              let picker = UIImagePickerController()
+//              picker.sourceType = .camera
+//              picker.allowsEditing = true
+//              picker.delegate = self
+//              self.present(picker, animated:true)
+//
+//      let imageData:NSData = self.cameraPreview.image!.jpegData(compressionQuality: 0.5)! as NSData
+//      imageCoreData = imageData
+//
+//    }
+//    let cancelAction = UIAlertAction(title: "Gallery",
+//                         style: .cancel) { (action) in
+//      self.imagePickerController.sourceType = .photoLibrary
+//      self.present(self.imagePickerController, animated: true, completion: nil)
+//    }
+//
+//    // Create and configure the alert controller.
+//    let alert = UIAlertController(title: "Method of Input",
+//          message: "Please Choose the methode to take the photo",
+//          preferredStyle: .alert)
+//    alert.addAction(defaultAction)
+//    alert.addAction(cancelAction)
+//
+//    self.present(alert, animated: true) {
+//    }
   }
     
     
