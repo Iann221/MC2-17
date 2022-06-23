@@ -23,7 +23,15 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell2.dateLabel.layer.cornerRadius = 10
         cell2.dateLabel.layer.masksToBounds = true
         
+        cell2.dateButton.tag = indexPath.row
+        cell2.dateButton.addTarget(self, action : #selector(buttonClicked), for: .touchUpInside)
+        
         return cell2
+    }
+    
+    @objc func buttonClicked(sender: UIButton) {
+        let indexpath1 = IndexPath(row: sender.tag, section: 0)
+        print(dateData[indexpath1.row])
     }
     
     @IBOutlet var tableView: UITableView!
