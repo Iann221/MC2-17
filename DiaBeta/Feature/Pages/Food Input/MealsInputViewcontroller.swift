@@ -64,19 +64,11 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   
 //MARK: - To Save
   @IBAction func saveAll(_ sender: Any) {
-    foodTextField.text = namaCoreData
-    preGulaCoreData = Int64(preGlucoseTextField.text!)
     
-    DBHelper.shared.createFood(timestamp: timeStampCoreData, nama: namaCoreData, category: kategoriCoreData, image: imageCoreData, preGula: preGulaCoreData)
-  }
-  
-  //MARK: - Gabungin Date and Time
-  func dateChanged(sender : UIDatePicker) {
+    //Gabungin Date and Time
     let dateFormatr = DateFormatter()
     dateFormatr.dateFormat = "yyyy-MM-dd"
     let strDate = dateFormatr.string(from: (DatePicker?.date)!)
-    
-
  
     let dateFormatr2 = DateFormatter()
     dateFormatr2.dateFormat = "HH:mm:ssZ"
@@ -88,7 +80,33 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     timeStampCoreData = dateFormatter.date(from:strDateTime)!
     
+    //Get Food dan input preFula
+    foodTextField.text = namaCoreData
+    preGulaCoreData = Int64(preGlucoseTextField.text!)
+    
+    //to Core Data
+    DBHelper.shared.createFood(timestamp: timeStampCoreData, nama: namaCoreData, category: kategoriCoreData, image: imageCoreData, preGula: preGulaCoreData)
   }
+  
+  //MARK: - Gabungin Date and Time
+//  func dateChanged(sender : UIDatePicker) {
+//    let dateFormatr = DateFormatter()
+//    dateFormatr.dateFormat = "yyyy-MM-dd"
+//    let strDate = dateFormatr.string(from: (DatePicker?.date)!)
+//
+//
+//
+//    let dateFormatr2 = DateFormatter()
+//    dateFormatr2.dateFormat = "HH:mm:ssZ"
+//    let strTime = dateFormatr2.string(from: (TimePicker?.date)!)
+//    let strDateTime = strDate+"T"+strTime
+//
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//    timeStampCoreData = dateFormatter.date(from:strDateTime)!
+//
+//  }
   
   //MARK: - ToCategory
   
