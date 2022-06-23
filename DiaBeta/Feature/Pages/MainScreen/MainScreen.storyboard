@@ -176,6 +176,7 @@
                         <outlet property="bottomView" destination="wtU-ws-FFL" id="8U7-Zu-j4b"/>
                         <outlet property="foodCollectionView" destination="Tjg-On-C6D" id="yZu-Av-XM9"/>
                         <outlet property="newsBottomLabel" destination="Xej-Zv-82h" id="hzR-FH-11g"/>
+                        <outlet property="newsImage" destination="dWq-Wn-pzY" id="OTN-9s-UJi"/>
                         <outlet property="newsTopLabel" destination="o4a-q8-8Zy" id="FNc-sB-MjD"/>
                         <outlet property="newsView" destination="3Dn-IO-QvT" id="OUD-d1-uYV"/>
                         <outlet property="topView" destination="VWO-rP-gPu" id="bfR-kw-UDS"/>
