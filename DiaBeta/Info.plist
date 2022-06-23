@@ -2,8 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Could i use your photo</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Could i use your media</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Could i use your library</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Could i use your camera</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+		<key>UIApplicationSupportsTabbedSceneCollection</key>
+		<false/>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 		<key>UISceneConfigurations</key>
@@ -16,7 +26,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>DBTest</string>
+					<string>Main</string>
 				</dict>
 			</array>
 		</dict>
