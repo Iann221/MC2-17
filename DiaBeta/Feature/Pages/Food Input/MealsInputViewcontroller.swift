@@ -76,8 +76,8 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     let strDateTime = strDate+"T"+strTime
     
     let dateFormatter = DateFormatter()
-    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     timeStampCoreData = dateFormatter.date(from:strDateTime)!
     
     //Get Food dan input preFula
