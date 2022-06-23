@@ -111,7 +111,7 @@
 		3CB2298F2852FA060054797B /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				A119A1D62863299200719F67 /* Meals */,
+				A119A1D62863299200719F67 /* MealsLog */,
 				3CB229912852FA310054797B /* Dummy */,
 				3CB229902852FA110054797B /* InputGulaDarah */,
 			);
@@ -202,7 +202,7 @@
 			path = DayFoodCell;
 			sourceTree = "<group>";
 		};
-		A119A1D62863299200719F67 /* Meals */ = {
+		A119A1D62863299200719F67 /* MealsLog */ = {
 			isa = PBXGroup;
 			children = (
 				A119A1D728632A3B00719F67 /* Meal.storyboard */,
@@ -211,7 +211,7 @@
 				A11E62A12862EA320094C336 /* MealTableViewCell.xib */,
 				A119A1FF2863752700719F67 /* DateCollectionViewCell.swift */,
 			);
-			path = Meals;
+			path = MealsLog;
 			sourceTree = "<group>";
 		};
 		F94930D7284E549D005C0B43 = {
