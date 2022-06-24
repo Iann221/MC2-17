@@ -55,8 +55,10 @@ class MealsViewController: UIViewController {
       let formatter = DateFormatter()
     formatter.dateFormat = "yyyy/MM/dd HH:mm"
       let sampleData = formatter.date(from: dateDate+String(hourHour)+":"+String(minuteMinute))!
-      let foodName = "Pecel Ayam"
-      let foodCategory = ["Grain", "Protein"]
+      let foodNameArr = ["Pecel Ayam","Steak","Soto Banjar","KFC","MCD"]
+    let foodName = foodNameArr[Int.random(in: 0..<foodNameArr.count-1)]
+    let foodCategoryArr = [["Grain", "Protein"],["Vegetables","Fruit"],["Dairy","Starch"],["Protein","Vegetables"]]
+      let foodCategory = foodCategoryArr[Int.random(in: 0..<foodCategoryArr.count-1)]
       let preValue = Int64.random(in: 90..<110)
       let image = UIImage(named: "siomay.jpeg")
       let imageData:NSData = image!.jpegData(compressionQuality: 0.5)! as NSData

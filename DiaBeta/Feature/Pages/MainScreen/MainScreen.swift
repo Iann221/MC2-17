@@ -93,7 +93,9 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
     if collectionView == foodCollectionView {
       cell.foodImage.image = UIImage(data: (goodFoodInfo[indexPath.row].food?.photo)!as Data)
       cell.foodName.text = goodFoodInfo[indexPath.row].food?.name
-      cell.foodLabel.text = goodFoodInfo[indexPath.row].food?.category![0]
+      let stringArr = goodFoodInfo[indexPath.row].food?.category!
+      let categoryArr = stringArr!.joined(separator: ",")
+      cell.foodLabel.text = categoryArr
       cell.glucoseLabel.text = "+ " + String(goodFoodInfo[indexPath.row].selisih) + " mg/dL"
       cell.glucoseLabel.backgroundColor = UIColor.green
       return cell
@@ -101,7 +103,9 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
     else {
       cell.foodImage.image = UIImage(data: (badFoodInfo[indexPath.row].food?.photo)!as Data)
       cell.foodName.text = badFoodInfo[indexPath.row].food?.name
-      cell.foodLabel.text = badFoodInfo[indexPath.row].food?.category![0]
+      let stringArr = badFoodInfo[indexPath.row].food?.category!
+      let categoryArr = stringArr!.joined(separator: ",")
+      cell.foodLabel.text = categoryArr
       cell.glucoseLabel.text = "+ " + String(badFoodInfo[indexPath.row].selisih) + " mg/dL"
       cell.glucoseLabel.backgroundColor = UIColor.red
       return cell

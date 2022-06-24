@@ -19,6 +19,8 @@
 		15F087922860C53E00EB8E19 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F087912860C53E00EB8E19 /* SampleViewController.swift */; };
 		15F087962860F49100EB8E19 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F087942860F49100EB8E19 /* TableViewCell.swift */; };
 		15F087972860F49100EB8E19 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F087952860F49100EB8E19 /* TableViewCell.xib */; };
+		15F0879B28645C5A00EB8E19 /* BloodSugarInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F0879A28645C5A00EB8E19 /* BloodSugarInput.storyboard */; };
+		15F0879D28645C9500EB8E19 /* BloodSugarInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0879C28645C9500EB8E19 /* BloodSugarInputViewController.swift */; };
 		3C2985F3285DE77400694432 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985ED285DE77400694432 /* Food+CoreDataClass.swift */; };
 		3C2985F4285DE77400694432 /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985EE285DE77400694432 /* Food+CoreDataProperties.swift */; };
 		3C2985F5285DE77400694432 /* FoodInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985EF285DE77400694432 /* FoodInfo+CoreDataClass.swift */; };
@@ -56,6 +58,8 @@
 		15F087912860C53E00EB8E19 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		15F087942860F49100EB8E19 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		15F087952860F49100EB8E19 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		15F0879A28645C5A00EB8E19 /* BloodSugarInput.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BloodSugarInput.storyboard; sourceTree = "<group>"; };
+		15F0879C28645C9500EB8E19 /* BloodSugarInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarInputViewController.swift; sourceTree = "<group>"; };
 		3C2985ED285DE77400694432 /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3C2985EE285DE77400694432 /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3C2985EF285DE77400694432 /* FoodInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -147,6 +151,15 @@
 			path = FoodDetail;
 			sourceTree = "<group>";
 		};
+		15F0879928645C3600EB8E19 /* BloodSugarInput */ = {
+			isa = PBXGroup;
+			children = (
+				15F0879A28645C5A00EB8E19 /* BloodSugarInput.storyboard */,
+				15F0879C28645C9500EB8E19 /* BloodSugarInputViewController.swift */,
+			);
+			path = BloodSugarInput;
+			sourceTree = "<group>";
+		};
 		3C3FB42828546B1F0072351F /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,21 +194,14 @@
 		3CB2298F2852FA060054797B /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				15F0879928645C3600EB8E19 /* BloodSugarInput */,
 				15F087982862A15300EB8E19 /* FoodDetail */,
 				15F0878A2860C3B800EB8E19 /* BloodSample */,
 				15F087892860C3B500EB8E19 /* Meals */,
 				1595547B28606ACC00FDF192 /* MainScreen */,
 				3CB229912852FA310054797B /* Dummy */,
-				3CB229902852FA110054797B /* InputGulaDarah */,
 			);
 			path = Pages;
-			sourceTree = "<group>";
-		};
-		3CB229902852FA110054797B /* InputGulaDarah */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = InputGulaDarah;
 			sourceTree = "<group>";
 		};
 		3CB229912852FA310054797B /* Dummy */ = {
@@ -380,6 +386,7 @@
 				3C3FB437285490090072351F /* siomay.jpeg in Resources */,
 				159554802860716500FDF192 /* GlucoseFoodCell.xib in Resources */,
 				15F0878C2860C3DB00EB8E19 /* Meals.storyboard in Resources */,
+				15F0879B28645C5A00EB8E19 /* BloodSugarInput.storyboard in Resources */,
 				3CB22993285309BF0054797B /* Dummy.storyboard in Resources */,
 				1595548A2860BFDB00FDF192 /* FoodDetail.storyboard in Resources */,
 			);
@@ -413,6 +420,7 @@
 				3C3FB4392854971F0072351F /* DBHelper.swift in Sources */,
 				3C2985F4285DE77400694432 /* Food+CoreDataProperties.swift in Sources */,
 				3C2985F6285DE77400694432 /* FoodInfo+CoreDataProperties.swift in Sources */,
+				15F0879D28645C9500EB8E19 /* BloodSugarInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
