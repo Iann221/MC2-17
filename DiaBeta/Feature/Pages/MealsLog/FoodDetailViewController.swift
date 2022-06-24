@@ -22,21 +22,21 @@ class FoodDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailImageView1.layer.cornerRadius = 8
-        categoryLabel1.sizeToFit()
-        botFoodDetailView1.layer.cornerRadius = 8
+        detailImgView.layer.cornerRadius = 8
+        categoryLbl.sizeToFit()
+        botFoodDetView.layer.cornerRadius = 8
       
         let categoryArray = foodDetail?.food?.category!
         let stringFromArray = categoryArray!.joined(separator: ",")
         let date = foodDetail?.food?.timestamp
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
-        detailImageView1.image = UIImage(data: (foodDetail?.food?.photo)!as Data)
-        preGlucoseLabel1.text = "\(Int(foodDetail?.food?.preGula ?? 0))"
-        postGlucoseLabel1.text = "\(Int(foodDetail?.food?.postGula ?? 0))"
-        categoryLabel1.text = stringFromArray
-        dateTimeLabel1.text = dateFormatter.string(from: date!)
-        foodNameLabel1.text = foodDetail?.food?.name
+        detailImgView.image = UIImage(data: (foodDetail?.food?.photo)!as Data)
+        preGlucoseLbl.text = "\(Int(foodDetail?.food?.preGula ?? 0))"
+        postGlucoseLbl.text = "\(Int(foodDetail?.food?.postGula ?? 0))"
+        categoryLbl.text = stringFromArray
+        dateTimeLbl.text = dateFormatter.string(from: date!)
+        foodNameLbl.text = foodDetail?.food?.name
     }
 }
 
