@@ -25,23 +25,25 @@ class FoodDetailViewController: UIViewController {
         categoryLbl.sizeToFit()
         botFoodDetView.layer.cornerRadius = 8
     
-        detailImgView.image = UIImage(data: (foodDetail?.foodInfo?.food?.photo)!as Data)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title : "Edit",
+                                                            style : .plain,
+                                                            target: self,
+                                                            action : nil)
         
-        foodNameLbl.text = foodDetail?.foodInfo?.food?.name
+        detailImgView.image = UIImage(data: (foodDetail?.photo)!as Data)
         
-        let categoryArray = foodDetail?.foodInfo?.food?.category!
+        foodNameLbl.text = foodDetail?.name
+     
+        let categoryArray = foodDetail?.category!
         let stringFromArray = categoryArray!.joined(separator: ",")
         categoryLbl.text = stringFromArray
         
-        let date = foodDetail?.foodInfo?.food?.timestamp
+        let date = foodDetail?.timestamp
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
         dateTimeLbl.text = dateFormatter.string(from: date!)
         
-        preGlucoseLbl.text = "\(Int(foodDetail?.foodInfo?.food?.preGula ?? 0))"
-        postGlucoseLbl.text = "\(Int(foodDetail?.foodInfo?.food?.postGula ?? 0))"
-
+        preGlucoseLbl.text = "\(Int(foodDetail?.preGula ?? 0))"
+        postGlucoseLbl.text = "\(Int(foodDetail?.postGula ?? 0))"
     }
 }
-
-
