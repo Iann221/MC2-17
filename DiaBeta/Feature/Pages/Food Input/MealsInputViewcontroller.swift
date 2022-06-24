@@ -71,12 +71,12 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   
   func getDate(DatePicker: Date){
     let dateFormatr = DateFormatter()
-    dateFormatr.dateFormat = "yyyy-MM-dd"
+    dateFormatr.dateFormat = "yyyy/MM/dd"
     strDate = dateFormatr.string(from: (DatePicker))
   }
   func getTime(TimePicker: Date){
     let dateFormatr2 = DateFormatter()
-    dateFormatr2.dateFormat = "HH:mm:ssZ"
+    dateFormatr2.dateFormat = "HH:mm"
     strTime = dateFormatr2.string(from: (TimePicker))
   }
 
@@ -87,22 +87,25 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     getDate(DatePicker: DatePicker.date)
     getTime(TimePicker: TimePicker.date)
     //To Combine the String
-    strDateTime = strDate!+"T"+strTime!
+    strDateTime = strDate!+" "+strTime!
     
-    print(strDateTime as Any)
+    print(strDateTime)
+    
     //To Change the Format into Date Again
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+    
     
     let date = dateFormatter.date(from:strDateTime!)
     let date2 = date ?? Date()
     
-    let calendar = Calendar.current
-    let components = calendar.dateComponents([.year, .month, .day, .hour], from: date2)
+//    let calendar = Calendar.current
+//    let components = calendar.dateComponents([.year, .month, .day, .hour], from: date2)
     
-    timeStampCoreData = (calendar.date(from: components))!
+//    timeStampCoreData = (calendar.date(from: components))!
     
+    timeStampCoreData = date2
     
     //Get Food dan input preGula
     namaCoreData = foodTextField.text!
@@ -122,7 +125,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     //to Core Data for POST MEAL
 //
     foodlist = DBHelper.shared.getAllFood()
-//    print(foodlist[foodlist.count-2])
+    print(foodlist[foodlist.count-2] as Any)
 //    DBHelper.shared.editFood(postGula: preGula, timestamp: foodlist[foodlist.count-1].timestamp)
   }
   
