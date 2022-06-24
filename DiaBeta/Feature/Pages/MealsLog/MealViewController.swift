@@ -8,6 +8,8 @@
 import UIKit
 
 class MealViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource{
+    @IBOutlet weak var dateCollectionView: UICollectionView!
+    var selectedRow: Int = -1
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dateData.count
@@ -28,6 +30,19 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell2.dateButton.tag = indexPath.row
         cell2.dateButton.addTarget(self, action : #selector(buttonClicked), for: .touchUpInside)
+        print(selectedRow)
+        print(indexPath.row)
+//        if(cell2.dateButton.isSelected) {
+//            print(indexPath.row)
+//        }
+        if(selectedRow == indexPath.row){
+            cell2.dateButton.layer.backgroundColor = UIColor(red: 0/255, green: 123/255, blue: 86/255, alpha: 1).cgColor
+            cell2.dateButton.setTitleColor(.white, for: .normal)
+        }else{
+            cell2.dateButton.layer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
+            cell2.dateButton.setTitleColor(UIColor(red: 47/255, green: 72/255, blue: 88/255, alpha: 1), for: .normal)
+//            cell2.dateButton.tintColor = UIColor.white
+        }
         
         return cell2
     }
@@ -35,24 +50,27 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func buttonClicked(sender: UIButton) {
         let indexpath1 = IndexPath(row: sender.tag, section: 0)
         print(dateData[indexpath1.row])
-       
+        selectedRow = indexpath1.row
        // let isAlreadySelected = sender.isSelected == true
 
-        sender.isSelected = !sender.isSelected
+//        sender.isSelected = !sender.isSelected
         
-        if(sender.isSelected == true){
-            sender.layer.backgroundColor = UIColor(red: 0/255, green: 123/255, blue: 86/255, alpha: 1).cgColor
-            sender.setTitleColor(.white, for: .normal)
-            
-        }else{
-            sender.layer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
-            sender.setTitleColor(UIColor(red: 47/255, green: 72/255, blue: 88/255, alpha: 1), for: .normal)
-     
-        }
-        
+//        if(sender.isSelected == true){
+//            sender.layer.backgroundColor = UIColor(red: 0/255, green: 123/255, blue: 86/255, alpha: 1).cgColor
+//            sender.setTitleColor(.white, for: .normal)
+//            
+//        }else{
+//            sender.layer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
+//            sender.setTitleColor(UIColor(red: 47/255, green: 72/255, blue: 88/255, alpha: 1), for: .normal)
+//        }
+        dateCollectionView.reloadData()
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        dateCollectionView.reloadData()
+        
+      }
     
     @IBOutlet var tableView: UITableView!
     
