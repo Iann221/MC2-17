@@ -88,8 +88,9 @@
                     <navigationItem key="navigationItem" title="Meals" id="97E-UV-0AW"/>
                     <connections>
                         <outlet property="dateCollectionView" destination="k3P-FQ-aCb" id="eVo-SE-Ofl"/>
+                        <outlet property="foodTableView" destination="Wxw-dm-hr1" id="1dE-xj-MaB"/>
                         <outlet property="tableView" destination="Wxw-dm-hr1" id="N6h-hv-MqU"/>
-                        <segue destination="3bC-yi-zV6" kind="push" identifier="foodDetail" id="4d6-DW-6eU"/>
+                        <segue destination="3bC-yi-zV6" kind="presentation" identifier="foodDetail" id="4d6-DW-6eU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgL-Th-buj" sceneMemberID="firstResponder"/>
@@ -119,7 +120,7 @@
             <objects>
                 <viewController id="3bC-yi-zV6" customClass="FoodDetailViewController" customModule="DiaBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6TZ-7O-q5d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YXL-eS-u7n">

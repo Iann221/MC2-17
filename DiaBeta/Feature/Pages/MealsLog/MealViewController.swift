@@ -7,13 +7,14 @@
 
 import UIKit
 
-var foodInfos:[FoodInfo] = []
+//var foodInfos:[Food] = []
 
 class MealViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource{
     @IBOutlet weak var dateCollectionView: UICollectionView!
+    @IBOutlet weak var foodTableView: UITableView!
     
     var selectedRow: Int = -1
-    var selectedFood: FoodInfo?
+    var selectedFood: Food?
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dateData.count
@@ -34,18 +35,12 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell2.dateButton.tag = indexPath.row
         cell2.dateButton.addTarget(self, action : #selector(buttonClicked), for: .touchUpInside)
-        print(selectedRow)
-        print(indexPath.row)
-//        if(cell2.dateButton.isSelected) {
-//            print(indexPath.row)
-//        }
         if(selectedRow == indexPath.row){
             cell2.dateButton.layer.backgroundColor = UIColor(red: 0/255, green: 123/255, blue: 86/255, alpha: 1).cgColor
             cell2.dateButton.setTitleColor(.white, for: .normal)
         }else{
             cell2.dateButton.layer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
             cell2.dateButton.setTitleColor(UIColor(red: 47/255, green: 72/255, blue: 88/255, alpha: 1), for: .normal)
-//            cell2.dateButton.tintColor = UIColor.white
         }
         
         return cell2
@@ -55,40 +50,33 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         let indexpath1 = IndexPath(row: sender.tag, section: 0)
         print(dateData[indexpath1.row])
         selectedRow = indexpath1.row
-       // let isAlreadySelected = sender.isSelected == true
-
-//        sender.isSelected = !sender.isSelected
-        
-//        if(sender.isSelected == true){
-//            sender.layer.backgroundColor = UIColor(red: 0/255, green: 123/255, blue: 86/255, alpha: 1).cgColor
-//            sender.setTitleColor(.white, for: .normal)
-//            
-//        }else{
-//            sender.layer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
-//            sender.setTitleColor(UIColor(red: 47/255, green: 72/255, blue: 88/255, alpha: 1), for: .normal)
-//        }
+        foodInfos = DBHelper.shared.getDateFood(weekDate[selectedRow])
         dateCollectionView.reloadData()
-        
+        foodTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        dateCollectionView.reloadData()
-        
+        dateCollectionView.reloadData()
+        foodTableView.reloadData()
       }
+    
+    
+    
     
     @IBOutlet var tableView: UITableView!
     
-//    let myData = ["first", "second", "third", "four", "five","six","seven","eight"]
+    var weekDate:[Date]=[]
+    var dateData:[String]=[]
     
-    var dateData:[String]=["Today","01 Jan 2022", "31 Dec 2021","30 Dec 2021","29 Dec 2021","28 Dec 2021","27 Dec 2021"]
-    
-    //let myData = DBHelper.shared.getAllFood()
-    let foodInfos = DBHelper.shared.getAllFood()
+    var foodInfos:[Food] = []
     let dateFormatter = DateFormatter()
+    //let foodInfos = DBHelper.shared.getAllFood()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        getWeeks()
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title : "Add",
                                                             style : .plain,
                                                             target: self,
@@ -99,13 +87,34 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        dateFormatter.dateFormat = "HH:mm"
-        let image = UIImage(named: "siomay.jpeg")
+//        dateFormatter.dateFormat = "HH:mm"
+//        let image = UIImage(named: "siomay.jpeg")
 //        let someDateTime = dateFormatter.date(from: "2022/06/22 20:21")! as Date
 //        let imageData:NSData = image!.jpegData(compressionQuality: 0.5)! as NSData
 //        DBHelper.shared.createFood(timestamp: Date(), nama: "ggggg", category: ["aaar", "rbbbb"], image: imageData, preGula: 130)
 //        DBHelper.shared.editFood(postGula: 101, timestamp: someDateTime)
         
+    }
+    
+    func getWeeks() {
+        let dateCur = Date()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        var i = 0
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        while (i != -7){
+            let datetoAdd = calendar.date(byAdding: .day, value: i, to: dateCur)
+            weekDate.append(datetoAdd!)
+            print(datetoAdd!)
+            let dateString = dateFormatter.string(from: datetoAdd!)
+            if(i == 0){
+                dateData.append("Today")
+            } else {
+                dateData.append(dateString)
+            }
+            print(dateString)
+            i-=1
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
