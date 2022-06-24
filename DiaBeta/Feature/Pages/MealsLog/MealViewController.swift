@@ -10,7 +10,7 @@ import UIKit
 class MealViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource{
     @IBOutlet weak var dateCollectionView: UICollectionView!
     var selectedRow: Int = -1
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dateData.count
     }
@@ -101,6 +101,11 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        DBHelper.shared.createFood(timestamp: Date(), nama: "ketoprak", category: ["sayur", "racun"], image: imageData, preGula: 100)
 //        DBHelper.shared.editFood(postGula: 101, timestamp: someDateTime)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       self.performSegue(withIdentifier: "TesViewController", sender: self)
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myData.count
