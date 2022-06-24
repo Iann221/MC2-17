@@ -24,8 +24,10 @@
 		3CB229A328530C7D0054797B /* DayFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CB229A128530C7D0054797B /* DayFoodCell.xib */; };
 		A119A1D828632A3B00719F67 /* Meal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A119A1D728632A3B00719F67 /* Meal.storyboard */; };
 		A119A1DA28632D0100719F67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A119A1D928632D0100719F67 /* Main.storyboard */; };
+		A119A2002863752700719F67 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119A1FF2863752700719F67 /* DateCollectionViewCell.swift */; };
 		A11E62A22862EA320094C336 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11E62A02862EA320094C336 /* MealTableViewCell.swift */; };
 		A11E62A32862EA320094C336 /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A11E62A12862EA320094C336 /* MealTableViewCell.xib */; };
+		A1D218A7286585AC0074FA5B /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D218A6286585AC0074FA5B /* FoodDetailViewController.swift */; };
 		F94930E4284E549D005C0B43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94930E3284E549D005C0B43 /* AppDelegate.swift */; };
 		F94930E6284E549D005C0B43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94930E5284E549D005C0B43 /* SceneDelegate.swift */; };
 		F94930E8284E549D005C0B43 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94930E7284E549D005C0B43 /* MealViewController.swift */; };
@@ -52,8 +54,10 @@
 		3CB229A128530C7D0054797B /* DayFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayFoodCell.xib; sourceTree = "<group>"; };
 		A119A1D728632A3B00719F67 /* Meal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meal.storyboard; sourceTree = "<group>"; };
 		A119A1D928632D0100719F67 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A119A1FF2863752700719F67 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		A11E62A02862EA320094C336 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		A11E62A12862EA320094C336 /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
+		A1D218A6286585AC0074FA5B /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		F94930E0284E549D005C0B43 /* DiaBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94930E3284E549D005C0B43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F94930E5284E549D005C0B43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,7 +113,7 @@
 		3CB2298F2852FA060054797B /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				A119A1D62863299200719F67 /* Meals */,
+				A119A1D62863299200719F67 /* MealsLog */,
 				3CB229912852FA310054797B /* Dummy */,
 				3CB229902852FA110054797B /* InputGulaDarah */,
 			);
@@ -200,15 +204,17 @@
 			path = DayFoodCell;
 			sourceTree = "<group>";
 		};
-		A119A1D62863299200719F67 /* Meals */ = {
+		A119A1D62863299200719F67 /* MealsLog */ = {
 			isa = PBXGroup;
 			children = (
 				A119A1D728632A3B00719F67 /* Meal.storyboard */,
 				F94930E7284E549D005C0B43 /* MealViewController.swift */,
 				A11E62A02862EA320094C336 /* MealTableViewCell.swift */,
 				A11E62A12862EA320094C336 /* MealTableViewCell.xib */,
+				A119A1FF2863752700719F67 /* DateCollectionViewCell.swift */,
+				A1D218A6286585AC0074FA5B /* FoodDetailViewController.swift */,
 			);
-			path = Meals;
+			path = MealsLog;
 			sourceTree = "<group>";
 		};
 		F94930D7284E549D005C0B43 = {
@@ -326,9 +332,11 @@
 				F94930E4284E549D005C0B43 /* AppDelegate.swift in Sources */,
 				F94930EE284E549D005C0B43 /* DiaBeta.xcdatamodeld in Sources */,
 				3C2985F5285DE77400694432 /* FoodInfo+CoreDataClass.swift in Sources */,
+				A119A2002863752700719F67 /* DateCollectionViewCell.swift in Sources */,
 				3CB2299528530A4D0054797B /* DummyViewController.swift in Sources */,
 				F94930E6284E549D005C0B43 /* SceneDelegate.swift in Sources */,
 				3C2985F3285DE77400694432 /* Food+CoreDataClass.swift in Sources */,
+				A1D218A7286585AC0074FA5B /* FoodDetailViewController.swift in Sources */,
 				A11E62A22862EA320094C336 /* MealTableViewCell.swift in Sources */,
 				3C3FB42D28546BCE0072351F /* DBTest.swift in Sources */,
 				3CB229A228530C7D0054797B /* DayFoodCell.swift in Sources */,
