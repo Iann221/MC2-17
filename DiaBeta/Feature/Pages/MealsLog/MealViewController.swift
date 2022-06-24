@@ -103,7 +103,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       self.performSegue(withIdentifier: "TesViewController", sender: self)
+       self.performSegue(withIdentifier: "FoodDetailViewController", sender: self)
     }
     
     
