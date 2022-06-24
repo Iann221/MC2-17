@@ -36,5 +36,12 @@ class FoodDetailViewController: UIViewController {
         categoryLabel.text = stringFromArray
         dateTimeLabel.text = dateFormatter.string(from: date!)
         foodNameLabel.text = foodDetail?.food?.name
+        let glucoseDifference = Int(foodDetail?.selisih ?? 0)
+        if glucoseDifference < 30 {
+          topFoodDetailView.backgroundColor = UIColor(named: "AccentColor")
+        }
+        else {
+          topFoodDetailView.backgroundColor = UIColor.red
+      }
     }
 }
