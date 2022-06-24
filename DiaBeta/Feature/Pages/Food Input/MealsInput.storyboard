@@ -132,8 +132,8 @@
                                 <rect key="frame" x="20" y="257" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insert Goals Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQD-QB-F8I">
-                                        <rect key="frame" x="8" y="1" width="385" height="44"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Food Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQD-QB-F8I">
+                                        <rect key="frame" x="8" y="0.0" width="385" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -145,7 +145,7 @@
                                 <rect key="frame" x="20" y="461" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insert Goals Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="noB-8f-Ylu">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pre-Meal Blood Sugar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="noB-8f-Ylu">
                                         <rect key="frame" x="8" y="-2" width="245" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -245,7 +245,6 @@
                         <outlet property="cameraPreview" destination="GwZ-ot-94L" id="mxG-cH-xrT"/>
                         <outlet property="foodTextField" destination="KQD-QB-F8I" id="YmD-m8-NWB"/>
                         <outlet property="foodUI" destination="WGq-bH-emd" id="S7J-SP-hn3"/>
-                        <outlet property="mgDL" destination="2XC-0J-W9Z" id="iQ8-LI-e2G"/>
                         <outlet property="preGlucoseTextField" destination="noB-8f-Ylu" id="dHY-6s-QR6"/>
                         <outlet property="preGlucoseView" destination="beo-nw-EXf" id="CGF-Ys-EyV"/>
                         <outlet property="save" destination="JGk-Wm-DcO" id="ywN-nP-sfQ"/>

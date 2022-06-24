@@ -4,16 +4,19 @@ import Photos
 class MealsInputViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
  
   //Var to CoreDate
-  var imageCoreData: NSData!
-  var namaCoreData: String!
+  var imageCoreData: NSData?
+  var namaCoreData: String?
   var kategoriCoreData = ["Dairy", "Fruit", "Grains", "Protein", "Starch", "Sweets", "Vegetables"]
-  var timeStampCoreData: Date!
-  var preGulaCoreData: Int64!
+  var timeStampCoreData: Date?
+  var preGulaCoreData: Int64?
   
   // Temp Var
-  var strDate: String!
-  var strTime: String!
-  var strDateTime: String!
+  var strDate: String?
+  var strTime: String?
+  var strDateTime: String?
+  
+  //COBA POST
+  var foodlist: [Food] = []
   
   
   @IBOutlet weak var cameraButton: UIButton!
@@ -25,7 +28,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   @IBOutlet weak var DateView: UIView!
   @IBOutlet weak var TimeView: UIView!
   @IBOutlet weak var preGlucoseView: UIView!
-  @IBOutlet weak var mgDL: UILabel!
+
   
   @IBOutlet weak var preGlucoseTextField: UITextField!
   @IBOutlet weak var foodTextField: UITextField!
@@ -46,7 +49,16 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     
     //Check All Permission
     checkPermission()
+    
+    //To Get Rid of the Keyboard
+    foodTextField.returnKeyType = .done
+    preGlucoseTextField.returnKeyType = .done
+    
+    foodTextField.delegate = self
+    preGlucoseTextField.delegate = self
+    
   }
+  
   
 //MARK: - Rounding the View
   private func roundUIView(){
@@ -75,26 +87,43 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     getDate(DatePicker: DatePicker.date)
     getTime(TimePicker: TimePicker.date)
     //To Combine the String
-    strDateTime = strDate+"T"+strTime
+    strDateTime = strDate!+"T"+strTime!
     
+    print(strDateTime as Any)
     //To Change the Format into Date Again
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    let date = dateFormatter.date(from:strDateTime)
+    
+    let date = dateFormatter.date(from:strDateTime!)
+    let date2 = date ?? Date()
     
     let calendar = Calendar.current
-    let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+    let components = calendar.dateComponents([.year, .month, .day, .hour], from: date2)
     
-    timeStampCoreData = calendar.date(from: components)
+    timeStampCoreData = (calendar.date(from: components))!
     
     
     //Get Food dan input preGula
     namaCoreData = foodTextField.text!
-    preGulaCoreData =  Int64(preGlucoseTextField.text!)
+    preGulaCoreData =  Int64(preGlucoseTextField.text!)!
     
+    let image = cameraPreview.image
+    let imageData = image?.jpegData(compressionQuality: 0.5) as? NSData
+
+    //to tem
+//    imageCoreData = imageData
+
     //to Core Data
-    DBHelper.shared.createFood(timestamp: timeStampCoreData, nama: namaCoreData, category: kategoriCoreData, image: imageCoreData, preGula: preGulaCoreData)
+    DBHelper.shared.createFood(timestamp: timeStampCoreData!, nama: namaCoreData!, category: kategoriCoreData, image: imageData!, preGula: preGulaCoreData!)
+    
+    
+    
+    //to Core Data for POST MEAL
+//
+    foodlist = DBHelper.shared.getAllFood()
+//    print(foodlist[foodlist.count-2])
+//    DBHelper.shared.editFood(postGula: preGula, timestamp: foodlist[foodlist.count-1].timestamp)
   }
   
   //MARK: - ToCategory
@@ -113,6 +142,9 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     picker.delegate = self
     present(picker, animated: true)
     
+    
+    
+    
 //    let defaultAction = UIAlertAction(title: "Camera",
 //                                      style: .default) { [self] (action) in
 //   // Respond to user selection of the action.
@@ -122,8 +154,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
 //              picker.delegate = self
 //              self.present(picker, animated:true)
 //
-//      let imageData:NSData = self.cameraPreview.image!.jpegData(compressionQuality: 0.5)! as NSData
-//      imageCoreData = imageData
+
 //
 //    }
 //    let cancelAction = UIAlertAction(title: "Gallery",
@@ -166,9 +197,17 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
     if picker.sourceType == .photoLibrary{
       cameraPreview?.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+      let camera = info[UIImagePickerController.InfoKey.originalImage] as? NSData
+      //to tem
+      imageCoreData = camera!
     }
     else{
       cameraPreview?.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+      
+//      let imageData:NSData = cameraPreview?.image!.jpegData(compressionQuality: 0.5)! as NSData
+//      let camera = info[UIImagePickerController.InfoKey.originalImage] as? NSData
+//      //to tem
+//      imageCoreData = camera!
     }
     
     picker.dismiss(animated: true, completion:nil)
@@ -226,5 +265,10 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   
 }
 
-
+extension MealsInputViewController: UITextFieldDelegate{
+  func textFieldShouldReturn(_ foodTextField: UITextField) -> Bool {
+    foodTextField.resignFirstResponder()
+    return true
+  }
+}
 
