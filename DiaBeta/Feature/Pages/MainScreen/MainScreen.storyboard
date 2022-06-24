@@ -180,7 +180,7 @@
                         <outlet property="newsTopLabel" destination="o4a-q8-8Zy" id="FNc-sB-MjD"/>
                         <outlet property="newsView" destination="3Dn-IO-QvT" id="OUD-d1-uYV"/>
                         <outlet property="topView" destination="VWO-rP-gPu" id="bfR-kw-UDS"/>
-                        <segue destination="PHQ-Rt-wo6" kind="presentation" identifier="foodDetail" id="2XP-Ze-T6E"/>
+                        <segue destination="PHQ-Rt-wo6" kind="showDetail" identifier="foodDetail" id="2XP-Ze-T6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
