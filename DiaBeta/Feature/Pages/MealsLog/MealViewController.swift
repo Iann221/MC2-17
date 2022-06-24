@@ -7,8 +7,6 @@
 
 import UIKit
 
-//var foodInfos:[Food] = []
-
 class MealViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource{
     @IBOutlet weak var dateCollectionView: UICollectionView!
     @IBOutlet weak var foodTableView: UITableView!
@@ -25,7 +23,6 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     
         cell2.dateButton.setTitle(dateData[indexPath.row], for: .normal)
         cell2.dateButton.titleLabel?.font = UIFont.systemFont(ofSize: 11)
-        //cell2.dateButton.layer.backgroundColor = UIColor.white.cgColor
         
         cell2.dateButton.layer.cornerRadius = 16
         cell2.dateButton.layer.masksToBounds = true
@@ -60,9 +57,6 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         foodTableView.reloadData()
       }
     
-    
-    
-    
     @IBOutlet var tableView: UITableView!
     
     var weekDate:[Date]=[]
@@ -70,7 +64,6 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var foodInfos:[Food] = []
     let dateFormatter = DateFormatter()
-    //let foodInfos = DBHelper.shared.getAllFood()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,13 +80,9 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-//        dateFormatter.dateFormat = "HH:mm"
-//        let image = UIImage(named: "siomay.jpeg")
-//        let someDateTime = dateFormatter.date(from: "2022/06/22 20:21")! as Date
-//        let imageData:NSData = image!.jpegData(compressionQuality: 0.5)! as NSData
-//        DBHelper.shared.createFood(timestamp: Date(), nama: "ggggg", category: ["aaar", "rbbbb"], image: imageData, preGula: 130)
-//        DBHelper.shared.editFood(postGula: 101, timestamp: someDateTime)
-        
+        dateFormatter.dateFormat = "HH:mm"
+        foodInfos = DBHelper.shared.getAllFood()
+    
     }
     
     func getWeeks() {
@@ -118,7 +107,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        foodInfos[indexPath.row]
+        selectedFood = foodInfos[indexPath.row]
         performSegue(withIdentifier: "foodDetail", sender: self)
     }
     

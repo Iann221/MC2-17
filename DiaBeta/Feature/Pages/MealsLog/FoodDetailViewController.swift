@@ -19,25 +19,28 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var botFoodDetView: UIView!
     @IBOutlet weak var topFoodDetView: UIView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         detailImgView.layer.cornerRadius = 8
         categoryLbl.sizeToFit()
         botFoodDetView.layer.cornerRadius = 8
-     
-//        let categoryArray = foodDetail?.food?.category!
-//        let stringFromArray = categoryArray!.joined(separator: ",")
-//        let date = foodDetail?.food?.timestamp
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
-//        detailImgView.image = UIImage(data: (foodDetail?.food?.photo)!as Data)
-//        preGlucoseLbl.text = "\(Int(foodDetail?.food?.preGula ?? 0))"
-//        postGlucoseLbl.text = "\(Int(foodDetail?.food?.postGula ?? 0))"
-//        categoryLbl.text = stringFromArray
-//        dateTimeLbl.text = dateFormatter.string(from: date!)
-//        foodNameLbl.text = foodDetail?.food?.name
+    
+        detailImgView.image = UIImage(data: (foodDetail?.foodInfo?.food?.photo)!as Data)
         
+        foodNameLbl.text = foodDetail?.foodInfo?.food?.name
+        
+        let categoryArray = foodDetail?.foodInfo?.food?.category!
+        let stringFromArray = categoryArray!.joined(separator: ",")
+        categoryLbl.text = stringFromArray
+        
+        let date = foodDetail?.foodInfo?.food?.timestamp
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+        dateTimeLbl.text = dateFormatter.string(from: date!)
+        
+        preGlucoseLbl.text = "\(Int(foodDetail?.foodInfo?.food?.preGula ?? 0))"
+        postGlucoseLbl.text = "\(Int(foodDetail?.foodInfo?.food?.postGula ?? 0))"
+
     }
 }
 
