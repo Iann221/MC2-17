@@ -7,9 +7,13 @@
 
 import UIKit
 
+var foodInfos:[FoodInfo] = []
+
 class MealViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource{
     @IBOutlet weak var dateCollectionView: UICollectionView!
+    
     var selectedRow: Int = -1
+    var selectedFood: FoodInfo?
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dateData.count
@@ -78,7 +82,8 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var dateData:[String]=["Today","01 Jan 2022", "31 Dec 2021","30 Dec 2021","29 Dec 2021","28 Dec 2021","27 Dec 2021"]
     
-    let myData = DBHelper.shared.getAllFood()
+    //let myData = DBHelper.shared.getAllFood()
+    let foodInfos = DBHelper.shared.getAllFood()
     let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
@@ -98,27 +103,29 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         let image = UIImage(named: "siomay.jpeg")
 //        let someDateTime = dateFormatter.date(from: "2022/06/22 20:21")! as Date
 //        let imageData:NSData = image!.jpegData(compressionQuality: 0.5)! as NSData
-//        DBHelper.shared.createFood(timestamp: Date(), nama: "ketoprak", category: ["sayur", "racun"], image: imageData, preGula: 100)
+//        DBHelper.shared.createFood(timestamp: Date(), nama: "ggggg", category: ["aaar", "rbbbb"], image: imageData, preGula: 130)
 //        DBHelper.shared.editFood(postGula: 101, timestamp: someDateTime)
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       self.performSegue(withIdentifier: "FoodDetailViewController", sender: self)
+        foodInfos[indexPath.row]
+        performSegue(withIdentifier: "foodDetail", sender: self)
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myData.count
+        return foodInfos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableViewCell", for: indexPath) as! MealTableViewCell
         
-        let selisih = myData[indexPath.row].postGula - myData[indexPath.row].preGula
-        let category = myData[indexPath.row].category?.joined(separator: ", ")
-        let rowDate = dateFormatter.string(from: (myData[indexPath.row].timestamp! as Date))
+        let selisih = foodInfos[indexPath.row].postGula - foodInfos[indexPath.row].preGula
+        let category = foodInfos[indexPath.row].category?.joined(separator: ", ")
+        let rowDate = dateFormatter.string(from: (foodInfos[indexPath.row].timestamp! as Date))
         cell.myLabel.text = "+ \(selisih)"
-        if (myData[indexPath.row].postGula == 0){
+        if (foodInfos[indexPath.row].postGula == 0){
             cell.myLabel1.layer.opacity = 1
             cell.myLabel.layer.opacity = 0
         } else{
@@ -130,13 +137,18 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             cell.myLabel.backgroundColor = UIColor.green
         }
-        cell.myLabel2.text = myData[indexPath.row].name
+        cell.myLabel2.text = foodInfos[indexPath.row].name
         cell.myLabel3.text = category
         cell.myLabel4.text = rowDate
-        cell.myImageView.image = UIImage(data: myData[indexPath.row].photo as! Data)
+        cell.myImageView.image = UIImage(data: foodInfos[indexPath.row].photo as! Data)
     
         return cell
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      
+      let foodDetailVC = segue.destination as! FoodDetailViewController
+      foodDetailVC.foodDetail = selectedFood //sesuain sama cell
+      
+    }
 }
