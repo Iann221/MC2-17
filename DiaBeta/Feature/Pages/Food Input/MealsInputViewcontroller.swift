@@ -3,17 +3,22 @@ import Photos
 
 class MealsInputViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
  
+  //Var to CoreDate
   var imageCoreData: NSData!
   var namaCoreData: String!
-  //var kategoriCoreData: [String]!
   var kategoriCoreData = ["Dairy", "Fruit", "Grains", "Protein", "Starch", "Sweets", "Vegetables"]
   var timeStampCoreData: Date!
   var preGulaCoreData: Int64!
   
+  // Temp Var
+  var strDate: String!
+  var strTime: String!
+  var strDateTime: String!
+  
+  
   @IBOutlet weak var cameraButton: UIButton!
   @IBOutlet weak var cameraPreview: UIImageView!
-
-  
+  @IBOutlet weak var foodUI: UIView!
   @IBOutlet weak var DateTime: UIView!
   @IBOutlet weak var FoodName: UIView!
   @IBOutlet weak var Category: UIView!
@@ -24,11 +29,9 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   
   @IBOutlet weak var preGlucoseTextField: UITextField!
   @IBOutlet weak var foodTextField: UITextField!
-
   @IBOutlet weak var CategoryButton: UIButton!
   @IBOutlet weak var DatePicker: UIDatePicker!
   @IBOutlet weak var TimePicker: UIDatePicker!
-  
   @IBOutlet weak var save: UIButton!
   
   var imagePickerController = UIImagePickerController()
@@ -36,22 +39,13 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   
   override func viewDidLoad() {
   super.viewDidLoad()
-    imagePickerController.delegate = self
     
-    // BELUM BISA ROUNDED
-//    let image = cameraPreview.image
-//    let imageData:NSData = image!.jpegData(compressionQuality: 0.5)! as NSData
-//    let myImageView:UIImageView = UIImageView()
-//    myImageView.contentMode = UIView.ContentMode.scaleAspectFit
+    imagePickerController.delegate = self
     cameraPreview.layer.cornerRadius = 8
     cameraPreview.clipsToBounds = true
-//    myImageView.image = image
     
-    //Cek Izin
+    //Check All Permission
     checkPermission()
-    
-    
-    
   }
   
 //MARK: - Rounding the View
@@ -61,52 +55,47 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     TimeView.layer.cornerRadius = 5
   }
   
+//MARK: - Get Date Data
   
+  func getDate(DatePicker: Date){
+    let dateFormatr = DateFormatter()
+    dateFormatr.dateFormat = "yyyy-MM-dd"
+    strDate = dateFormatr.string(from: (DatePicker))
+  }
+  func getTime(TimePicker: Date){
+    let dateFormatr2 = DateFormatter()
+    dateFormatr2.dateFormat = "HH:mm:ssZ"
+    strTime = dateFormatr2.string(from: (TimePicker))
+  }
+
 //MARK: - To Save
   @IBAction func saveAll(_ sender: Any) {
     
-    //Gabungin Date and Time
-    let dateFormatr = DateFormatter()
-    dateFormatr.dateFormat = "yyyy-MM-dd"
-    let strDate = dateFormatr.string(from: (DatePicker?.date)!)
- 
-    let dateFormatr2 = DateFormatter()
-    dateFormatr2.dateFormat = "HH:mm:ssZ"
-    let strTime = dateFormatr2.string(from: (TimePicker?.date)!)
-    let strDateTime = strDate+"T"+strTime
+    //To Gate Date and Time
+    getDate(DatePicker: DatePicker.date)
+    getTime(TimePicker: TimePicker.date)
+    //To Combine the String
+    strDateTime = strDate+"T"+strTime
     
+    //To Change the Format into Date Again
     let dateFormatter = DateFormatter()
-//    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-//    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    timeStampCoreData = dateFormatter.date(from:strDateTime)!
+    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    let date = dateFormatter.date(from:strDateTime)
     
-    //Get Food dan input preFula
-    foodTextField.text = namaCoreData
-    preGulaCoreData = Int64(preGlucoseTextField.text!)
+    let calendar = Calendar.current
+    let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+    
+    timeStampCoreData = calendar.date(from: components)
+    
+    
+    //Get Food dan input preGula
+    namaCoreData = foodTextField.text!
+    preGulaCoreData =  Int64(preGlucoseTextField.text!)
     
     //to Core Data
     DBHelper.shared.createFood(timestamp: timeStampCoreData, nama: namaCoreData, category: kategoriCoreData, image: imageCoreData, preGula: preGulaCoreData)
   }
-  
-  //MARK: - Gabungin Date and Time
-//  func dateChanged(sender : UIDatePicker) {
-//    let dateFormatr = DateFormatter()
-//    dateFormatr.dateFormat = "yyyy-MM-dd"
-//    let strDate = dateFormatr.string(from: (DatePicker?.date)!)
-//
-//
-//
-//    let dateFormatr2 = DateFormatter()
-//    dateFormatr2.dateFormat = "HH:mm:ssZ"
-//    let strTime = dateFormatr2.string(from: (TimePicker?.date)!)
-//    let strDateTime = strDate+"T"+strTime
-//
-//    let dateFormatter = DateFormatter()
-//    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-//    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-//    timeStampCoreData = dateFormatter.date(from:strDateTime)!
-//
-//  }
   
   //MARK: - ToCategory
   
@@ -154,7 +143,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
 //    }
   }
     
-    
+  //MARK: - Check All Permission
   func checkPermission(){
     if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.authorized{
       PHPhotoLibrary.requestAuthorization({(status: PHAuthorizationStatus) -> Void in ()
@@ -186,8 +175,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     
   }
   
-  
-  // FOR DATA INPUT
+  // FOR DATA INPUT (Probably important if Date and Time method above is not working
   
   // Date
 //  func createDatePicker(){
