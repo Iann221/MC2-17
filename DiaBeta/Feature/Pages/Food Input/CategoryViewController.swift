@@ -8,32 +8,59 @@
 import Foundation
 import UIKit
 
-class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class CategoryViewController: UIViewController{
   
-  override func viewDidLoad() {
+  @IBOutlet weak var saveSettingButton: UIButton!
+  
+  var category = ["Dairy", "Fruit", "Grains", "Protein", "Starch", "Sweets", "Vegetables"]
+  var categoryDict = ["Dairy": false, "Fruit": false, "Grains": false, "Protein" : false, "Starch" : false, "Sweets" : false, "Vegetables" : false]
+  var categoryIndex = ["Dairy": 1, "Fruit": 2, "Grains": 3, "Protein" : 4, "Starch" : 5, "Sweets" : 6, "Vegetables" : 7]
+  
+  var selectedCategoryString = [String]()
+  var selectedCategoryIndex = [Int]()
+  
+  //MARK: - ViewDidLoad
+  override func viewDidLoad()
+  {
     super.viewDidLoad()
+    saveSettingButton.layer.cornerRadius = 10
   }
   
-  //MARK: - Table Data Source
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+  //MARK: - to Save
+  @IBAction func saveSettingPressed(_ sender: Any)
+  {
+    SharedInfo.shared.category = selectedCategoryString
+    print(SharedInfo.shared.category)
+    getSelectedCategory()
+    print(selectedCategoryIndex)
   }
   
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return "CATEGORY"
+  //MARK: - Function Helpers
+  private func getSelectedCategory()
+  {
+    selectedCategoryString = categoryDict.allKeys(forValue: true)
+    for string in selectedCategoryString {
+      if categoryIndex[string] != nil {
+        selectedCategoryIndex.append(categoryIndex[string]!)
+      }
+    }
   }
   
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    category.count
+  //MARK: - Properties
+  @IBOutlet weak var tableView: UITableView!
+  {
+    didSet {
+      tableView.delegate = self
+      tableView.dataSource = self
+      tableView.isScrollEnabled = false
+    }
   }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    cell.textLabel?.text = category[indexPath.row]
-  return cell
-  }
-  
-  //MARK: - Table Delegate
+}
+
+//MARK: - Table Delegate
+extension CategoryViewController: UITableViewDelegate
+{
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if categoryDict[category[indexPath.row]] == true {
       categoryDict[category[indexPath.row]] = false
@@ -44,34 +71,31 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
       tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
     }
   }
-  
-  //MARK: - Properties
-  @IBOutlet weak var tableView: UITableView! {
-    didSet {
-      tableView.delegate = self
-      tableView.dataSource = self
-      tableView.isScrollEnabled = false
-      
-    }
+}
+
+//MARK: - Table Data Source
+
+extension CategoryViewController:UITableViewDataSource
+{
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
   }
-  
-  var category = ["Dairy", "Fruit", "Grains", "Protein", "Starch", "Sweets", "Vegetables"]
-  
-  var categoryDict = ["Dairy": false, "Fruit": false, "Grains": false, "Protein" : false, "Starch" : false, "Sweets" : false, "Vegetables" : false]
-  
-  var categoryIndex = ["Dairy": 1, "Fruit": 2, "Grains": 3, "Protein" : 4, "Starch" : 5, "Sweets" : 6, "Vegetables" : 7]
-  
-  var selectedCategoryString = [String]()
-  var selectedCategoryIndex = [Int]()
-  
-  private func getSelectedCategory(){
-    selectedCategoryString = categoryDict.allKeys(forValue: true)
-    for string in selectedCategoryString {
-      if categoryIndex[string] != nil {
-        selectedCategoryIndex.append(categoryIndex[string]!)
-      }
-    }
-    
+
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return "CATEGORY"
+  }
+
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    category.count
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    cell.textLabel?.text = category[indexPath.row]
+  return cell
   }
 
 }
+
+
+

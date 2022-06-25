@@ -43,6 +43,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   override func viewDidLoad() {
   super.viewDidLoad()
     
+    roundUIView()
     imagePickerController.delegate = self
     cameraPreview.layer.cornerRadius = 8
     cameraPreview.clipsToBounds = true

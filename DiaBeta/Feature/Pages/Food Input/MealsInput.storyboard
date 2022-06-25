@@ -33,12 +33,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oZf-ME-zT8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oZf-ME-zT8">
                                 <rect key="frame" x="28" y="91" width="369" height="369"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Background-Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="365" id="uBM-7y-olL"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="cBg-tV-0KB">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="369" height="44"/>
@@ -50,13 +48,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsp-7V-oBg">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsp-7V-oBg">
                                 <rect key="frame" x="64" y="727" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="BoldOrange-Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="2Nw-Jx-p4G"/>
-                                    <constraint firstAttribute="width" constant="300" id="C6C-68-yf2"/>
-                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -71,26 +66,17 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="saveSettingPressed:" destination="GlL-fZ-1IZ" eventType="touchUpInside" id="Ngm-ud-kcw"/>
                                     <action selector="saveSettingsPressed:" destination="GlL-fZ-1IZ" eventType="touchUpInside" id="eGH-Be-XYA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yG6-vt-eRa"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                        <constraints>
-                            <constraint firstItem="yG6-vt-eRa" firstAttribute="bottom" secondItem="wsp-7V-oBg" secondAttribute="bottom" constant="43" id="O6c-dd-aAc"/>
-                            <constraint firstItem="oZf-ME-zT8" firstAttribute="top" secondItem="yG6-vt-eRa" secondAttribute="top" constant="5" id="Ow9-xa-h5C"/>
-                            <constraint firstItem="oZf-ME-zT8" firstAttribute="leading" secondItem="yG6-vt-eRa" secondAttribute="leading" constant="16" id="bkP-Ng-qpY"/>
-                            <constraint firstItem="yG6-vt-eRa" firstAttribute="trailing" secondItem="wsp-7V-oBg" secondAttribute="trailing" constant="45" id="eQI-f8-Bkc"/>
-                            <constraint firstItem="yG6-vt-eRa" firstAttribute="trailing" secondItem="oZf-ME-zT8" secondAttribute="trailing" constant="16" id="kjG-Y3-Add"/>
-                            <constraint firstItem="wsp-7V-oBg" firstAttribute="leading" secondItem="yG6-vt-eRa" secondAttribute="leading" constant="45" id="o63-v9-fvE"/>
-                            <constraint firstItem="wsp-7V-oBg" firstAttribute="centerX" secondItem="OVf-cd-zDj" secondAttribute="centerX" id="qYQ-XK-VjH"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="L2S-sn-B7V"/>
                     <connections>
-                        <outlet property="backButton" destination="L2S-sn-B7V" id="7MP-vD-WP4"/>
-                        <outlet property="saveSettingButton" destination="wsp-7V-oBg" id="JM8-XF-tAA"/>
+                        <outlet property="saveSettingButton" destination="wsp-7V-oBg" id="mw3-JF-uTk"/>
                         <outlet property="tableView" destination="oZf-ME-zT8" id="M5g-Tk-MOA"/>
                     </connections>
                 </viewController>

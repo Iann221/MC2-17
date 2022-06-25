@@ -22,6 +22,7 @@
 		3CB2299E28530C280054797B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB2299D28530C280054797B /* Color.swift */; };
 		3CB229A228530C7D0054797B /* DayFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB229A028530C7D0054797B /* DayFoodCell.swift */; };
 		3CB229A328530C7D0054797B /* DayFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CB229A128530C7D0054797B /* DayFoodCell.xib */; };
+		F91B514B2866860F00584437 /* SharedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B514A2866860F00584437 /* SharedInfo.swift */; };
 		F943BFF62863F8DE00432F6C /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F943BFF52863F8DE00432F6C /* CategoryViewController.swift */; };
 		F943BFF82864162A00432F6C /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F943BFF72864162A00432F6C /* DictionaryExtension.swift */; };
 		F94930E4284E549D005C0B43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94930E3284E549D005C0B43 /* AppDelegate.swift */; };
@@ -51,6 +52,7 @@
 		3CB2299D28530C280054797B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		3CB229A028530C7D0054797B /* DayFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFoodCell.swift; sourceTree = "<group>"; };
 		3CB229A128530C7D0054797B /* DayFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayFoodCell.xib; sourceTree = "<group>"; };
+		F91B514A2866860F00584437 /* SharedInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedInfo.swift; sourceTree = "<group>"; };
 		F943BFF52863F8DE00432F6C /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = "DiaBeta/Feature/Pages/Food Input/CategoryViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F943BFF72864162A00432F6C /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DictionaryExtension.swift; path = "DiaBeta/Feature/Pages/Food Input/DictionaryExtension.swift"; sourceTree = SOURCE_ROOT; };
 		F94930E0284E549D005C0B43 /* DiaBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				3C3FB4382854971F0072351F /* DBHelper.swift */,
+				F91B514A2866860F00584437 /* SharedInfo.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				3CB229A228530C7D0054797B /* DayFoodCell.swift in Sources */,
 				F9B66B8D286030EB0088A438 /* MealsInputViewcontroller.swift in Sources */,
 				3C2985F7285DE77400694432 /* GulaDarah+CoreDataClass.swift in Sources */,
+				F91B514B2866860F00584437 /* SharedInfo.swift in Sources */,
 				3CB2299E28530C280054797B /* Color.swift in Sources */,
 				3C3FB4392854971F0072351F /* DBHelper.swift in Sources */,
 				3C2985F4285DE77400694432 /* Food+CoreDataProperties.swift in Sources */,
