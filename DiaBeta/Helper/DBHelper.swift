@@ -271,7 +271,7 @@ class DBHelper {
             let diff = Calendar.current.dateComponents([.day], from: currTimestamp, to: now)
             let diffDay = diff.day
             print("perbedaan hari:")
-            print(diffDay)
+            print(diffDay!)
             if(diffDay! >= 7){
                 deleteInfo(info: foodInfoList[i])
             }
@@ -392,9 +392,9 @@ class DBHelper {
             try context.save()
             if (postGula>0){
                 print("edit food")
-                let currentDateTime = Date()
-                createGula(timestamp: currentDateTime, event: "post", jumlah: postGula)
-//                createGula(timestamp: someDateTime, event: "post", jumlah: postGula)
+//                let currentDateTime = Date()
+//                createGula(timestamp: currentDateTime, event: "post", jumlah: postGula)
+                createGula(timestamp: timestamp, event: "post", jumlah: postGula)
                 print("added gula darah")
             }
         } catch {
