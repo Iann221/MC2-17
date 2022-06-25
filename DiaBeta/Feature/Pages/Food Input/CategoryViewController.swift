@@ -29,10 +29,10 @@ class CategoryViewController: UIViewController{
   //MARK: - to Save
   @IBAction func saveSettingPressed(_ sender: Any)
   {
+    getSelectedCategory()
     SharedInfo.shared.category = selectedCategoryString
     print(SharedInfo.shared.category)
-    getSelectedCategory()
-    print(selectedCategoryIndex)
+    print(selectedCategoryString)
   }
   
   //MARK: - Function Helpers

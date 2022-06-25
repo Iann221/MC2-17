@@ -6,7 +6,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   //Var to CoreDate
   var imageCoreData: NSData?
   var namaCoreData: String?
-  var kategoriCoreData = ["Dairy", "Fruit", "Grains", "Protein", "Starch", "Sweets", "Vegetables"]
+  var kategoriCoreData: [String] = []
   var timeStampCoreData: Date?
   var preGulaCoreData: Int64?
   
@@ -101,10 +101,6 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     let date = dateFormatter.date(from:strDateTime!)
     let date2 = date ?? Date()
     
-//    let calendar = Calendar.current
-//    let components = calendar.dateComponents([.year, .month, .day, .hour], from: date2)
-    
-//    timeStampCoreData = (calendar.date(from: components))!
     
     timeStampCoreData = date2
     
@@ -115,9 +111,9 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     let image = cameraPreview.image
     let imageData = image?.jpegData(compressionQuality: 0.5) as? NSData
 
-    //to tem
-//    imageCoreData = imageData
-
+    
+    //
+    kategoriCoreData = SharedInfo.shared.category
     //to Core Data
     DBHelper.shared.createFood(timestamp: timeStampCoreData!, nama: namaCoreData!, category: kategoriCoreData, image: imageData!, preGula: preGulaCoreData!)
     
@@ -126,7 +122,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     //to Core Data for POST MEAL
 //
     foodlist = DBHelper.shared.getAllFood()
-    print(foodlist[foodlist.count-2] as Any)
+    print(foodlist[foodlist.count-1].category as Any)
 //    DBHelper.shared.editFood(postGula: preGula, timestamp: foodlist[foodlist.count-1].timestamp)
   }
   
